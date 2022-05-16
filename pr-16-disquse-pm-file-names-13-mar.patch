@@ -1,0 +1,2156 @@
+From 08636d31f57479e113b83dfc4bf91b0f042ded43 Mon Sep 17 00:00:00 2001
+From: Disquse <disquse@mail.com>
+Date: Sun, 13 Mar 2022 18:41:12 +0300
+Subject: [PATCH] RDR2: Add names extracted from #pm files
+
+---
+ .../anim_0/anim/motions/ai_getup.txt          |  32 +++
+ .../anim/motions/creatures_amphibian.txt      |   2 +
+ .../motions/creatures_amphibian_low_lod.txt   |   2 +
+ .../anim/motions/creatures_arthropod.txt      |   2 +
+ .../anim_0/anim/motions/creatures_bird.txt    |  49 ++++
+ .../anim_0/anim/motions/creatures_mammal.txt  | 116 ++++++++
+ .../anim/motions/creatures_mammal_low_lod.txt |  78 ++++++
+ .../anim_0/anim/motions/creatures_reptile.txt |   7 +
+ .../motions/creatures_reptile_low_lod.txt     |   6 +
+ .../anim_0/anim/motions/draft_horse.txt       |   3 +
+ .../anim_0/anim/motions/horse.txt             |  33 +++
+ .../anim_0/anim/motions/horseback.txt         |  43 +++
+ .../anim_0/anim/motions/mech_cover.txt        |  24 ++
+ .../anim_0/anim/motions/mech_loco_f.txt       |  27 ++
+ .../anim_0/anim/motions/mech_loco_m.txt       | 260 ++++++++++++++++++
+ .../anim_0/anim/motions/mech_pickup.txt       |   4 +
+ .../anim_0/anim/motions/mech_strafe.txt       |  10 +
+ .../anim_0/anim/motions/mech_weapons.txt      |   4 +
+ .../dlc/x64/anim/motions/mech_loco_f.txt      |   2 +
+ .../dlc/x64/anim/motions/mech_loco_m.txt      |  17 ++
+ .../dlc/x64/anim/motions/creatures_mammal.txt |   4 +
+ .../anim/motions/creatures_mammal_low_lod.txt |   2 +
+ .../x64/anim/motions/creatures_reptile.txt    |   1 +
+ .../motions/creatures_reptile_low_lod.txt     |   1 +
+ .../mp005/dlc/x64/anim/motions/horse.txt      |   3 +
+ .../mp005/dlc/x64/anim/motions/horseback.txt  |   1 +
+ .../dlc/x64/anim/motions/mech_loco_f.txt      |  21 ++
+ .../dlc/x64/anim/motions/mech_loco_m.txt      | 143 ++++++++++
+ .../dlc/x64/anim/motions/mech_strafe.txt      |   7 +
+ .../dlc/x64/anim/motions/mech_weapons.txt     |   1 +
+ .../dlc/x64/anim/motions/creatures_mammal.txt |   4 +
+ .../anim/motions/creatures_mammal_low_lod.txt |   4 +
+ .../dlc/x64/anim/motions/mech_loco_m.txt      |   5 +
+ .../dlc/x64/anim/motions/draft_horse.txt      |   1 +
+ .../mp009/dlc/x64/anim/motions/horse.txt      |   1 +
+ .../dlc/x64/anim/motions/creatures_mammal.txt | 116 ++++++++
+ .../anim/motions/creatures_mammal_low_lod.txt |  78 ++++++
+ .../dlc/x64/anim/motions/draft_horse.txt      |   3 +
+ .../dlc/x64/anim/motions/horse.txt            |  33 +++
+ .../dlc/x64/anim/motions/horseback.txt        |  43 +++
+ .../dlc/x64/anim/motions/mech_loco_f.txt      |  27 ++
+ .../dlc/x64/anim/motions/mech_loco_m.txt      | 260 ++++++++++++++++++
+ .../dlc/x64/anim/motions/ai_getup.txt         |  12 +
+ .../dlc/x64/anim/motions/draft_horse.txt      |   3 +
+ .../dlc/x64/anim/motions/horse.txt            |   6 +
+ .../dlc/x64/anim/motions/horseback.txt        |  14 +
+ .../dlc/x64/anim/motions/mech_loco_f.txt      |   7 +
+ .../dlc/x64/anim/motions/mech_loco_m.txt      |   9 +
+ .../dlc/x64/anim/motions/ai_getup.txt         |  15 +
+ .../dlc/x64/anim/motions/creatures_bird.txt   |   5 +
+ .../dlc/x64/anim/motions/creatures_mammal.txt |   7 +
+ .../anim/motions/creatures_mammal_low_lod.txt |   7 +
+ .../x64/anim/motions/creatures_reptile.txt    |   3 +
+ .../motions/creatures_reptile_low_lod.txt     |   3 +
+ .../dlc/x64/anim/motions/mech_loco_f.txt      |   1 +
+ .../x64/anim/motions/creatures_arthropod.txt  |   1 +
+ .../dlc/x64/anim/motions/creatures_bird.txt   |   7 +
+ .../dlc/x64/anim/motions/creatures_mammal.txt |   6 +
+ .../anim/motions/creatures_mammal_low_lod.txt |   4 +
+ .../x64/anim/motions/creatures_reptile.txt    |   2 +
+ .../motions/creatures_reptile_low_lod.txt     |   1 +
+ .../dlc/x64/anim/motions/horse.txt            |   1 +
+ .../dlc/x64/anim/motions/horseback.txt        |   5 +
+ .../dlc/x64/anim/motions/horse.txt            |   3 +
+ .../dlc/x64/anim/motions/horseback.txt        |   6 +
+ .../dlc/x64/anim/motions/creatures_bird.txt   |  22 ++
+ .../dlc/x64/anim/motions/creatures_mammal.txt |   2 +
+ .../anim/motions/creatures_mammal_low_lod.txt |   2 +
+ 68 files changed, 1634 insertions(+)
+
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/ai_getup.txt b/RDR2/ArchiveItems/anim_0/anim/motions/ai_getup.txt
+index 0f64284df..141f3da61 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/ai_getup.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/ai_getup.txt
+@@ -1,5 +1,37 @@
+ @ai_getup@exit@from_knees@action
++@ai_getup@exit@from_knees@chain_gang
++@ai_getup@exit@from_knees@combat@injured_pistol_aim
++@ai_getup@exit@from_knees@combat@injured_rifle_aim
++@ai_getup@exit@from_knees@combat@pistol_aim@idle
++@ai_getup@exit@from_knees@combat@rifle_aim@idle
++@ai_getup@exit@from_knees@critical_injured
++@ai_getup@exit@from_knees@crouch
++@ai_getup@exit@from_knees@drunk
++@ai_getup@exit@from_knees@injured
++@ai_getup@exit@from_knees@injured@low_lod
++@ai_getup@exit@from_knees@intimidated@on_knees
++@ai_getup@exit@from_knees@intimidated@standing
++@ai_getup@exit@from_knees@nervous
++@ai_getup@exit@from_knees@normal
++@ai_getup@exit@from_knees@panic
++@ai_getup@exit@from_knees@scared
+ @ai_getup@exit@from_knees@urgent
+ @ai_getup@exit@from_seated@action
++@ai_getup@exit@from_seated@chain_gang
++@ai_getup@exit@from_seated@combat@injured_pistol_aim
++@ai_getup@exit@from_seated@combat@injured_rifle_aim
++@ai_getup@exit@from_seated@combat@pistol_aim@idle
++@ai_getup@exit@from_seated@combat@rifle_aim@idle
++@ai_getup@exit@from_seated@critical_injured
++@ai_getup@exit@from_seated@crouch
++@ai_getup@exit@from_seated@drunk
++@ai_getup@exit@from_seated@injured
++@ai_getup@exit@from_seated@injured@low_lod
++@ai_getup@exit@from_seated@intimidated@on_ass
++@ai_getup@exit@from_seated@intimidated@standing
++@ai_getup@exit@from_seated@nervous
++@ai_getup@exit@from_seated@normal
++@ai_getup@exit@from_seated@panic
++@ai_getup@exit@from_seated@scared
+ @ai_getup@exit@from_seated@urgent
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian.txt
+index cf40cc0f7..b22b7ee6f 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian.txt
+@@ -1 +1,3 @@
++@creatures_amphibian@frogbull@normal
++@creatures_amphibian@toad@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian_low_lod.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian_low_lod.txt
+index cf40cc0f7..a4fabd9a7 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian_low_lod.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_amphibian_low_lod.txt
+@@ -1 +1,3 @@
++@creatures_amphibian_low_lod@frogbull@normal
++@creatures_amphibian_low_lod@toad@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_arthropod.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_arthropod.txt
+index cf40cc0f7..09a80c9ed 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_arthropod.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_arthropod.txt
+@@ -1 +1,3 @@
++@creatures_arthropod@crab@normal
++@creatures_arthropod@crawfish@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_bird.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_bird.txt
+index cf40cc0f7..561281cd8 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_bird.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_bird.txt
+@@ -1 +1,50 @@
++@creatures_bird@bat@air
++@creatures_bird@bat@land
++@creatures_bird@californiacondor@air
++@creatures_bird@californiacondor@land
++@creatures_bird@carolinaparakeet@air
++@creatures_bird@carolinaparakeet@land
++@creatures_bird@chicken@land
++@creatures_bird@chicken@panic@land
++@creatures_bird@cranewhooping@air
++@creatures_bird@cranewhooping@land
++@creatures_bird@crow@air
++@creatures_bird@crow@land
++@creatures_bird@duck@air
++@creatures_bird@duck@land
++@creatures_bird@eagle@air
++@creatures_bird@eagle@land
++@creatures_bird@goosecanada@air
++@creatures_bird@goosecanada@land
++@creatures_bird@hawk@air
++@creatures_bird@hawk@land
++@creatures_bird@heron@air
++@creatures_bird@heron@land
++@creatures_bird@owl@air
++@creatures_bird@owl@land
++@creatures_bird@parrot@air
++@creatures_bird@parrot@land
++@creatures_bird@pelican@air
++@creatures_bird@pelican@land
++@creatures_bird@pheasant@air
++@creatures_bird@pheasant@land
++@creatures_bird@pigeon@air
++@creatures_bird@pigeon@land
++@creatures_bird@prairiechicken@air
++@creatures_bird@prairiechicken@land
++@creatures_bird@quail@air
++@creatures_bird@quail@land
++@creatures_bird@redfootedbooby@land
++@creatures_bird@rooster@land
++@creatures_bird@seagull@air
++@creatures_bird@seagull@land
++@creatures_bird@sparrow@air
++@creatures_bird@sparrow@land
++@creatures_bird@turkey@land
++@creatures_bird@turkeywild@air
++@creatures_bird@turkeywild@land
++@creatures_bird@vulture@air
++@creatures_bird@vulture@land
++@creatures_bird@woodpecker@air
++@creatures_bird@woodpecker@land
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal.txt
+index cf40cc0f7..0be846627 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal.txt
+@@ -1 +1,117 @@
++@creatures_mammal@armadillo@normal
++@creatures_mammal@badger@normal
++@creatures_mammal@bear@action
++@creatures_mammal@bear@alerted
++@creatures_mammal@bear@injured_critical
++@creatures_mammal@bear@normal
++@creatures_mammal@bear@reaction
++@creatures_mammal@bearblack@action
++@creatures_mammal@bearblack@injured_critical
++@creatures_mammal@bearblack@normal
++@creatures_mammal@bearblack@reaction
++@creatures_mammal@beaver@normal
++@creatures_mammal@bighornram@charging
++@creatures_mammal@bighornram@injured
++@creatures_mammal@bighornram@normal
++@creatures_mammal@bighornram@reaction
++@creatures_mammal@boar@agitated
++@creatures_mammal@boar@charging
++@creatures_mammal@boar@injured
++@creatures_mammal@boar@injured_critical
++@creatures_mammal@boar@normal
++@creatures_mammal@boar@reaction
++@creatures_mammal@buffalo@agitated
++@creatures_mammal@buffalo@charging
++@creatures_mammal@buffalo@injured
++@creatures_mammal@buffalo@injured_critical
++@creatures_mammal@buffalo@normal
++@creatures_mammal@buffalo@reaction
++@creatures_mammal@bull@agitated
++@creatures_mammal@bull@charging
++@creatures_mammal@bull@injured
++@creatures_mammal@bull@injured_critical
++@creatures_mammal@bull@normal
++@creatures_mammal@bull@reaction
++@creatures_mammal@cat@normal
++@creatures_mammal@cat@reaction
++@creatures_mammal@cougar@injured
++@creatures_mammal@cougar@injured_critical
++@creatures_mammal@cougar@normal
++@creatures_mammal@cougar@reaction
++@creatures_mammal@cougar@stealth
++@creatures_mammal@cow@agitated
++@creatures_mammal@cow@injured
++@creatures_mammal@cow@injured_critical
++@creatures_mammal@cow@normal
++@creatures_mammal@cow@reaction
++@creatures_mammal@deer@agitated
++@creatures_mammal@deer@injured
++@creatures_mammal@deer@injured_critical
++@creatures_mammal@deer@normal
++@creatures_mammal@deer@reaction
++@creatures_mammal@dog@action
++@creatures_mammal@dog@happy
++@creatures_mammal@dog@injured
++@creatures_mammal@dog@injured_critical
++@creatures_mammal@dog@normal
++@creatures_mammal@dog@reaction
++@creatures_mammal@dog@sad
++@creatures_mammal@dog@searching
++@creatures_mammal@elk@agitated
++@creatures_mammal@elk@charging
++@creatures_mammal@elk@injured
++@creatures_mammal@elk@injured_critical
++@creatures_mammal@elk@normal
++@creatures_mammal@elk@reaction
++@creatures_mammal@fox@injured
++@creatures_mammal@fox@injured_critical
++@creatures_mammal@fox@normal
++@creatures_mammal@fox@reaction
++@creatures_mammal@goat@agitated
++@creatures_mammal@goat@charging
++@creatures_mammal@goat@injured
++@creatures_mammal@goat@injured_critical
++@creatures_mammal@goat@normal
++@creatures_mammal@goat@reaction
++@creatures_mammal@lionmangy@injured
++@creatures_mammal@lionmangy@normal
++@creatures_mammal@lionmangy@reaction
++@creatures_mammal@moose@agitated
++@creatures_mammal@moose@charging
++@creatures_mammal@moose@injured
++@creatures_mammal@moose@injured_critical
++@creatures_mammal@moose@normal
++@creatures_mammal@moose@reaction
++@creatures_mammal@muskrat@normal
++@creatures_mammal@pig@agitated
++@creatures_mammal@pig@injured
++@creatures_mammal@pig@injured_critical
++@creatures_mammal@pig@normal
++@creatures_mammal@pig@reaction
++@creatures_mammal@possum@normal
++@creatures_mammal@rabbit@normal
++@creatures_mammal@raccoon@normal
++@creatures_mammal@rat@normal
++@creatures_mammal@sheep@agitated
++@creatures_mammal@sheep@injured
++@creatures_mammal@sheep@injured_critical
++@creatures_mammal@sheep@normal
++@creatures_mammal@sheep@reaction
++@creatures_mammal@skunk@normal
++@creatures_mammal@squirrel@normal
++@creatures_mammal@wolf@action
++@creatures_mammal@wolf@injured
++@creatures_mammal@wolf@injuredcritical
++@creatures_mammal@wolf@normal
++@creatures_mammal@wolf@reaction
++@creatures_mammal@wolf_medium@action
++@creatures_mammal@wolf_medium@injured
++@creatures_mammal@wolf_medium@injuredcritical
++@creatures_mammal@wolf_medium@normal
++@creatures_mammal@wolf_medium@reaction
++@creatures_mammal@wolf_small@action
++@creatures_mammal@wolf_small@injured
++@creatures_mammal@wolf_small@injuredcritical
++@creatures_mammal@wolf_small@normal
++@creatures_mammal@wolf_small@reaction
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..1bf61f8f4 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,79 @@
++@creatures_mammal_low_lod@badger@normal
++@creatures_mammal_low_lod@bear@action
++@creatures_mammal_low_lod@bear@alerted
++@creatures_mammal_low_lod@bear@normal
++@creatures_mammal_low_lod@bear@reaction
++@creatures_mammal_low_lod@bearblack@action
++@creatures_mammal_low_lod@bearblack@normal
++@creatures_mammal_low_lod@bearblack@reaction
++@creatures_mammal_low_lod@beaver@normal
++@creatures_mammal_low_lod@bighornram@injured
++@creatures_mammal_low_lod@bighornram@normal
++@creatures_mammal_low_lod@bighornram@reaction
++@creatures_mammal_low_lod@boar@injured
++@creatures_mammal_low_lod@boar@injured_critical
++@creatures_mammal_low_lod@boar@normal
++@creatures_mammal_low_lod@boar@reaction
++@creatures_mammal_low_lod@buffalo@normal
++@creatures_mammal_low_lod@buffalo@reaction
++@creatures_mammal_low_lod@bull@normal
++@creatures_mammal_low_lod@bull@reaction
++@creatures_mammal_low_lod@cat@normal
++@creatures_mammal_low_lod@cougar@normal
++@creatures_mammal_low_lod@cougar@reaction
++@creatures_mammal_low_lod@cow@injured
++@creatures_mammal_low_lod@cow@injured_critical
++@creatures_mammal_low_lod@cow@normal
++@creatures_mammal_low_lod@cow@reaction
++@creatures_mammal_low_lod@deer@injured_critical
++@creatures_mammal_low_lod@deer@normal
++@creatures_mammal_low_lod@deer@reaction
++@creatures_mammal_low_lod@dog@normal
++@creatures_mammal_low_lod@dog@reaction
++@creatures_mammal_low_lod@elk@injured
++@creatures_mammal_low_lod@elk@injured_critical
++@creatures_mammal_low_lod@elk@normal
++@creatures_mammal_low_lod@elk@reaction
++@creatures_mammal_low_lod@fox@injured
++@creatures_mammal_low_lod@fox@injured_critical
++@creatures_mammal_low_lod@fox@normal
++@creatures_mammal_low_lod@fox@reaction
++@creatures_mammal_low_lod@goat@injured
++@creatures_mammal_low_lod@goat@injured_critical
++@creatures_mammal_low_lod@goat@normal
++@creatures_mammal_low_lod@goat@reaction
++@creatures_mammal_low_lod@lionmangy@injured
++@creatures_mammal_low_lod@lionmangy@normal
++@creatures_mammal_low_lod@lionmangy@reaction
++@creatures_mammal_low_lod@moose@injured
++@creatures_mammal_low_lod@moose@injured_critical
++@creatures_mammal_low_lod@moose@normal
++@creatures_mammal_low_lod@moose@reaction
++@creatures_mammal_low_lod@muskrat@normal
++@creatures_mammal_low_lod@pig@injured
++@creatures_mammal_low_lod@pig@injured_critical
++@creatures_mammal_low_lod@pig@normal
++@creatures_mammal_low_lod@pig@reaction
++@creatures_mammal_low_lod@possum@normal
++@creatures_mammal_low_lod@rabbit@normal
++@creatures_mammal_low_lod@raccoon@normal
++@creatures_mammal_low_lod@rat@normal
++@creatures_mammal_low_lod@sheep@injured
++@creatures_mammal_low_lod@sheep@injured_critical
++@creatures_mammal_low_lod@sheep@normal
++@creatures_mammal_low_lod@sheep@reaction
++@creatures_mammal_low_lod@skunk@normal
++@creatures_mammal_low_lod@squirrel@normal
++@creatures_mammal_low_lod@wolf@injured
++@creatures_mammal_low_lod@wolf@injuredcritical
++@creatures_mammal_low_lod@wolf@normal
++@creatures_mammal_low_lod@wolf@reaction
++@creatures_mammal_low_lod@wolf_medium@injured
++@creatures_mammal_low_lod@wolf_medium@injuredcritical
++@creatures_mammal_low_lod@wolf_medium@normal
++@creatures_mammal_low_lod@wolf_medium@reaction
++@creatures_mammal_low_lod@wolf_small@injured
++@creatures_mammal_low_lod@wolf_small@injuredcritical
++@creatures_mammal_low_lod@wolf_small@normal
++@creatures_mammal_low_lod@wolf_small@reaction
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile.txt
+index 3de51f754..e7046408b 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile.txt
+@@ -1,2 +1,9 @@
++@creatures_reptile@alligator@normal
++@creatures_reptile@alligator@panic
++@creatures_reptile@alligator@wading
++@creatures_reptile@alligator_03@normal
++@creatures_reptile@alligator_03@panic
++@creatures_reptile@iguana@normal
+ @creatures_reptile@snake@normal
++@creatures_reptile@turtlesnapping@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile_low_lod.txt b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile_low_lod.txt
+index 08c38c7a0..224d320a8 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile_low_lod.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/creatures_reptile_low_lod.txt
+@@ -1,2 +1,8 @@
++@creatures_reptile_low_lod@alligator@normal
++@creatures_reptile_low_lod@alligator@panic
++@creatures_reptile_low_lod@alligator@wading
++@creatures_reptile_low_lod@alligator_03@normal
++@creatures_reptile_low_lod@alligator_03@panic
+ @creatures_reptile_low_lod@snake@normal
++@creatures_reptile_low_lod@turtlesnapping@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/draft_horse.txt b/RDR2/ArchiveItems/anim_0/anim/motions/draft_horse.txt
+index cf40cc0f7..816266b05 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/draft_horse.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/draft_horse.txt
+@@ -1 +1,4 @@
++@draft_horse@agitated
++@draft_horse@normal
++@draft_horse@normal@strain
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/horse.txt b/RDR2/ArchiveItems/anim_0/anim/motions/horse.txt
+index f9825ae03..3c81610f8 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/horse.txt
+@@ -1,3 +1,36 @@
++@horse@agitated
++@horse@agitated_injured
++@horse@agitated_normal
++@horse@agitated_snow
++@horse@bucking
++@horse@bucking@oneshot_a
++@horse@bucking@oneshot_c
++@horse@bucking@oneshot_e
++@horse@bucking@variation_a
++@horse@bucking@variation_b
++@horse@bucking@variation_c
++@horse@bucking@variation_e
++@horse@injured
++@horse@injured_critical
++@horse@low_core
+ @horse@normal
++@horse@normal@climb_exit
++@horse@normal@drop_land
++@horse@normal@emergency
++@horse@normal@jump_land
++@horse@normal@rearing
++@horse@normal@shunt
+ @horse@normal@skid
++@horse@normal@variation_a
++@horse@normal@variation_b
++@horse@normal@variation_c
++@horse@normal@variation_d
++@horse@reaction
++@horse@snow
++@horse@terrain@sliding@canter
++@horse@terrain@sliding@idle
++@horse@terrain@sliding@slide
++@horse@terrain@sliding@trot
++@horse@terrain@sliding@walk
++@horse@wading
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/horseback.txt b/RDR2/ArchiveItems/anim_0/anim/motions/horseback.txt
+index cf40cc0f7..a1ca4a09a 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/horseback.txt
+@@ -1 +1,44 @@
++@horseback@seat_rear@types@female@right@bucking
++@horseback@seat_rear@types@female@right@climb_exit
++@horseback@seat_rear@types@female@right@drop_land
++@horseback@seat_rear@types@female@right@jump_land
++@horseback@seat_rear@types@female@right@normal
++@horseback@seat_rear@types@female@right@normal@emergency
++@horseback@seat_rear@types@female@right@normal@rearing
++@horseback@seat_rear@types@male@bucking
++@horseback@seat_rear@types@male@climb_exit
++@horseback@seat_rear@types@male@drop_land
++@horseback@seat_rear@types@male@jump_land
++@horseback@seat_rear@types@male@normal
++@horseback@seat_rear@types@male@normal@emergency
++@horseback@seat_rear@types@male@normal@rearing
++@horseback@seat_saddle@character@arthur@normal@1h
++@horseback@seat_saddle@character@arthur@normal@2h
++@horseback@seat_saddle@character@bill@normal
++@horseback@seat_saddle@character@charles@normal
++@horseback@seat_saddle@character@dutch@normal
++@horseback@seat_saddle@character@jack@jump_land
++@horseback@seat_saddle@character@jack@normal
++@horseback@seat_saddle@character@jack@normal@bucking
++@horseback@seat_saddle@character@jack@normal@climb_exit
++@horseback@seat_saddle@character@jack@normal@drop_land
++@horseback@seat_saddle@character@javier@normal
++@horseback@seat_saddle@character@lenny@normal
++@horseback@seat_saddle@character@micah@normal
++@horseback@seat_saddle@emotion@panic
++@horseback@seat_saddle@emotion@scared
++@horseback@seat_saddle@types@female@normal@2h
++@horseback@seat_saddle@types@male@bucking@2h
++@horseback@seat_saddle@types@male@climb_exit
++@horseback@seat_saddle@types@male@drop_land
++@horseback@seat_saddle@types@male@jump_land
++@horseback@seat_saddle@types@male@normal@1h
++@horseback@seat_saddle@types@male@normal@2h
++@horseback@seat_saddle@types@male@normal@2h@emergency
++@horseback@seat_saddle@types@male@normal@2h@rearing
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_a
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_b
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_c
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_d
++@horseback@seat_saddle@types@male@skid@accel
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_cover.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_cover.txt
+index cf40cc0f7..9367c6744 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_cover.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_cover.txt
+@@ -1 +1,25 @@
++@mech_cover@enter@arthur@bow@base
++@mech_cover@enter@arthur@dual@base
++@mech_cover@enter@arthur@longarms@base
++@mech_cover@enter@arthur@unarmed@base
++@mech_cover@enter@cowboy@high@left@dual@base
++@mech_cover@enter@cowboy@high@left@longarms@base
++@mech_cover@enter@cowboy@high@left@unarmed@base
++@mech_cover@enter@cowboy@high@right@dual@base
++@mech_cover@enter@cowboy@high@right@longarms@base
++@mech_cover@enter@cowboy@high@right@unarmed@base
++@mech_cover@enter@cowboy@low@fwd@dual@aim
++@mech_cover@enter@cowboy@low@fwd@dual@base
++@mech_cover@enter@cowboy@low@fwd@longarms@base
++@mech_cover@enter@cowboy@low@fwd@unarmed@base
++@mech_cover@enter@cowboy@low@left@dual@base
++@mech_cover@enter@cowboy@low@left@longarms@base
++@mech_cover@enter@cowboy@low@left@unarmed@base
++@mech_cover@enter@cowboy@low@right@dual@base
++@mech_cover@enter@cowboy@low@right@longarms@base
++@mech_cover@enter@cowboy@low@right@unarmed@base
++@mech_cover@exit@arthur@bow@base
++@mech_cover@exit@arthur@core@base
++@mech_cover@exit@arthur@dual@base
++@mech_cover@exit@arthur@longarms@base
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_f.txt
+index 3349277ca..afca5bb61 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_f.txt
+@@ -1,2 +1,29 @@
++@mech_loco_f@character@abigail@normal@unarmed
++@mech_loco_f@character@karen@normal@unarmed
++@mech_loco_f@character@lilly_millet@sad
++@mech_loco_f@character@marybeth@normal@unarmed
++@mech_loco_f@character@sadie@menacing@longarm
++@mech_loco_f@character@sadie@normal@unarmed
++@mech_loco_f@character@susan@normal@unarmed
++@mech_loco_f@character@susan@seductive@unarmed
++@mech_loco_f@character@tilly@normal@unarmed
++@mech_loco_f@character@widow@unarmed@dead_rabbit
++@mech_loco_f@generic@combat@medium_intensity@pistol
++@mech_loco_f@generic@combat@skirt@medium_intensity@pistol
++@mech_loco_f@generic@emotion@unarmed@sad
++@mech_loco_f@generic@injured@unarmed@general
++@mech_loco_f@generic@injured@unarmed@left_leg
++@mech_loco_f@generic@injured@unarmed@right_leg
++@mech_loco_f@generic@normal@unarmed
++@mech_loco_f@generic@normal@unarmed@low_lod
++@mech_loco_f@generic@normal@unarmed@stairs
+ @mech_loco_f@generic@normal@unarmed@stairs_simple
++@mech_loco_f@type@angry_female@unarmed
++@mech_loco_f@type@cowgirl@unarmed
++@mech_loco_f@type@cowgirl_a@unarmed
++@mech_loco_f@type@flat_female@normal
++@mech_loco_f@type@high_class@normal@unarmed
++@mech_loco_f@type@old@normal@unarmed
++@mech_loco_f@type@practical@normal@unarmed
++@mech_loco_f@type@whore@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_m.txt
+index b80a5cfe6..94ae76320 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_loco_m.txt
+@@ -1,6 +1,266 @@
++@mech_loco_m@character@algie@drunk@unarmed
++@mech_loco_m@character@algie@normal@unarmed
++@mech_loco_m@character@arthur@action@unarmed
++@mech_loco_m@character@arthur@casual@unarmed
++@mech_loco_m@character@arthur@core@stamina
++@mech_loco_m@character@arthur@crouch@normal
++@mech_loco_m@character@arthur@crouch@normal@low_lod
++@mech_loco_m@character@arthur@crouch@unarmed
++@mech_loco_m@character@arthur@dehydrated@unarmed
++@mech_loco_m@character@arthur@horse_leading@unarmed
++@mech_loco_m@character@arthur@injured@left_shoulder
++@mech_loco_m@character@arthur@normal@drunk
++@mech_loco_m@character@arthur@normal@interior
++@mech_loco_m@character@arthur@normal@unarmed
++@mech_loco_m@character@arthur@normal@unarmed@firstperson
++@mech_loco_m@character@arthur@normal@unarmed@leadin
++@mech_loco_m@character@arthur@normal@unarmed@leadin@variants@1m
++@mech_loco_m@character@arthur@normal@unarmed@leadin@variants@3m
++@mech_loco_m@character@arthur@normal@unarmed@singlestep
++@mech_loco_m@character@arthur@normal@very_drunk
++@mech_loco_m@character@arthur@reaction@avoid@unarmed
++@mech_loco_m@character@arthur@reaction@avoid@unarmed@sharp
++@mech_loco_m@character@arthur@reaction@avoid@unarmed@soft
++@mech_loco_m@character@arthur@special@chain_gang@catchup
++@mech_loco_m@character@arthur@special@chain_gang@normal
++@mech_loco_m@character@arthur@terrain@unarmed@ice
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge_blizzard
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge_cliff
++@mech_loco_m@character@arthur@terrain@unarmed@snow
++@mech_loco_m@character@arthur@terrain@unarmed@snow@action
++@mech_loco_m@character@arthur@terrain@unarmed@swamp
++@mech_loco_m@character@arthur@terrain@unarmed@tar
++@mech_loco_m@character@arthur@terrain@unarmed@uneven
++@mech_loco_m@character@arthur@terrain@unarmed@water
++@mech_loco_m@character@arthur@terrain@unarmed@water@rapids
++@mech_loco_m@character@arthur@tired@unarmed
++@mech_loco_m@character@bill@action@boltaction
++@mech_loco_m@character@bill@normal@armed@boltaction
++@mech_loco_m@character@bill@normal@unarmed
++@mech_loco_m@character@bill@special@chain_gang
++@mech_loco_m@character@charles@normal@unarmed
++@mech_loco_m@character@dale_maroney@drunk@unarmed
++@mech_loco_m@character@dutch@combat@dual
++@mech_loco_m@character@dutch@normal@unarmed
++@mech_loco_m@character@dutch@special@chain_gang
++@mech_loco_m@character@evelyn_miller@normal@unarmed
++@mech_loco_m@character@free_slave@slave_01
++@mech_loco_m@character@free_slave@slave_02
++@mech_loco_m@character@fusar@var_01@action@armed
++@mech_loco_m@character@fusar@var_01@normal@armed
++@mech_loco_m@character@fusar@var_02@action@armed
++@mech_loco_m@character@fusar@var_02@normal@armed
++@mech_loco_m@character@hosea@action@armed
++@mech_loco_m@character@hosea@normal@unarmed
++@mech_loco_m@character@hosea@sick@armed
++@mech_loco_m@character@hosea@sick@unarmed
++@mech_loco_m@character@jack@normal@unarmed
++@mech_loco_m@character@jack_teen@normal@unarmed
++@mech_loco_m@character@javier@normal@unarmed
++@mech_loco_m@character@javier@special@chain_gang
++@mech_loco_m@character@john_marston@cautious@unarmed
++@mech_loco_m@character@john_marston@normal@unarmed
++@mech_loco_m@character@josiah_trelawny@normal
++@mech_loco_m@character@kid_lostdog
++@mech_loco_m@character@kieran@normal@unarmed
++@mech_loco_m@character@micah@combat@medium_intensity@dual
++@mech_loco_m@character@micah@normal@unarmed
++@mech_loco_m@character@micah@normal@unarmed@holstered
++@mech_loco_m@character@micah@special@chain_gang
++@mech_loco_m@character@pearson@normal
++@mech_loco_m@character@primate@normal
++@mech_loco_m@character@rainsfall@normal@unarmed
++@mech_loco_m@character@rc@charles_in_dress
++@mech_loco_m@character@rc@gold_panner
++@mech_loco_m@character@rc@undertaker
++@mech_loco_m@character@rc@war_veteran
++@mech_loco_m@character@sean@normal@unarmed
++@mech_loco_m@character@uncle@normal@unarmed
++@mech_loco_m@character@winston@normal@armed
++@mech_loco_m@generic@action@unarmed
++@mech_loco_m@generic@carry@animals@large
++@mech_loco_m@generic@carry@animals@large@low_lod
++@mech_loco_m@generic@carry@bag@left_shoulder
++@mech_loco_m@generic@carry@bag@right_shoulder
++@mech_loco_m@generic@carry@box
++@mech_loco_m@generic@carry@champagne
++@mech_loco_m@generic@carry@coffee
++@mech_loco_m@generic@carry@moonshine@action
++@mech_loco_m@generic@carry@moonshine@crouch
++@mech_loco_m@generic@carry@saddle
++@mech_loco_m@generic@casual@unarmed
+ @mech_loco_m@generic@climb_exit@concave
++@mech_loco_m@generic@climb_exit@crouch@concave
++@mech_loco_m@generic@climb_exit@crouch@stepup
++@mech_loco_m@generic@climb_exit@crouch@vertical@high
++@mech_loco_m@generic@climb_exit@injured@stepup
+ @mech_loco_m@generic@climb_exit@injured@vertical@high
++@mech_loco_m@generic@climb_exit@injured@vertical@low
+ @mech_loco_m@generic@climb_exit@stepup
+ @mech_loco_m@generic@climb_exit@vertical@high
++@mech_loco_m@generic@climb_exit@vertical@low
++@mech_loco_m@generic@climb_fails@long_run
++@mech_loco_m@generic@climb_fails@short_run
++@mech_loco_m@generic@climb_fails@stand
++@mech_loco_m@generic@combat@critical_injured@back@pistol
++@mech_loco_m@generic@combat@critical_injured@back@rifle
++@mech_loco_m@generic@combat@critical_injured@back@unarmed
++@mech_loco_m@generic@combat@critical_injured@front@pistol
++@mech_loco_m@generic@combat@critical_injured@front@rifle
++@mech_loco_m@generic@combat@critical_injured@front@unarmed
++@mech_loco_m@generic@combat@high_intensity@blade
++@mech_loco_m@generic@combat@high_intensity@pistol
++@mech_loco_m@generic@combat@high_intensity@rifle
++@mech_loco_m@generic@combat@high_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@injured@pistol
++@mech_loco_m@generic@combat@injured@torso@pistol
++@mech_loco_m@generic@combat@injured@torso@rifle
++@mech_loco_m@generic@combat@injured@unarmed@general
++@mech_loco_m@generic@combat@injured@unarmed@left_leg
++@mech_loco_m@generic@combat@injured@unarmed@right_leg
++@mech_loco_m@generic@combat@low_intensity@pistol
++@mech_loco_m@generic@combat@low_intensity@rifle
++@mech_loco_m@generic@combat@low_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@medium_intensity@pistol
++@mech_loco_m@generic@combat@medium_intensity@pistol@injured_on_ground
++@mech_loco_m@generic@combat@medium_intensity@pistol@low_lod
++@mech_loco_m@generic@combat@medium_intensity@pistol@reaction
++@mech_loco_m@generic@combat@medium_intensity@rifle
++@mech_loco_m@generic@combat@medium_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@medium_intensity@rifle@reaction
++@mech_loco_m@generic@combat@medium_intensity@unarmed
++@mech_loco_m@generic@combat@zero_intensity@pistol
++@mech_loco_m@generic@combat@zero_intensity@unarmed
++@mech_loco_m@generic@critical_injured@unarmed@general
++@mech_loco_m@generic@crouch@unarmed
++@mech_loco_m@generic@crouch@unarmed@stairs_simple
++@mech_loco_m@generic@drunk@unarmed@low_lod
++@mech_loco_m@generic@drunk@unarmed@moderate_drunk
++@mech_loco_m@generic@drunk@unarmed@slightly_drunk
++@mech_loco_m@generic@drunk@unarmed@very_drunk
++@mech_loco_m@generic@emotion@unarmed@angry
++@mech_loco_m@generic@emotion@unarmed@angry@low_lod
++@mech_loco_m@generic@emotion@unarmed@angry@react
++@mech_loco_m@generic@emotion@unarmed@cower@known
++@mech_loco_m@generic@emotion@unarmed@cower@known@react
++@mech_loco_m@generic@emotion@unarmed@cower@unknown
++@mech_loco_m@generic@emotion@unarmed@cower@unknown@react
++@mech_loco_m@generic@emotion@unarmed@cower@unknown@transition
++@mech_loco_m@generic@emotion@unarmed@curious
++@mech_loco_m@generic@emotion@unarmed@curious@react
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@low_lod
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@reaction
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@scared
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet@scared
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@low_lod
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@scared
++@mech_loco_m@generic@emotion@unarmed@nervous
++@mech_loco_m@generic@emotion@unarmed@panic@react@crouch
++@mech_loco_m@generic@emotion@unarmed@shocked
++@mech_loco_m@generic@emotion@unarmed@shocked@reaction
++@mech_loco_m@generic@injured@low_lod
++@mech_loco_m@generic@injured@pistol@aiming
++@mech_loco_m@generic@injured@pistol@aiming@low_lod
++@mech_loco_m@generic@injured@pistol@chest
++@mech_loco_m@generic@injured@pistol@general
++@mech_loco_m@generic@injured@pistol@head
++@mech_loco_m@generic@injured@pistol@left_arm
++@mech_loco_m@generic@injured@pistol@left_leg
++@mech_loco_m@generic@injured@pistol@right_arm
++@mech_loco_m@generic@injured@pistol@right_leg
++@mech_loco_m@generic@injured@rifle@aiming
++@mech_loco_m@generic@injured@rifle@aiming@low_lod
++@mech_loco_m@generic@injured@rifle@chest
++@mech_loco_m@generic@injured@rifle@general
++@mech_loco_m@generic@injured@rifle@head
++@mech_loco_m@generic@injured@rifle@left_arm
++@mech_loco_m@generic@injured@rifle@right_arm
++@mech_loco_m@generic@injured@rifle@right_leg
++@mech_loco_m@generic@injured@unarmed@chest
++@mech_loco_m@generic@injured@unarmed@critical_back
++@mech_loco_m@generic@injured@unarmed@critical_chest
++@mech_loco_m@generic@injured@unarmed@critical_neck
++@mech_loco_m@generic@injured@unarmed@critical_neck_right
++@mech_loco_m@generic@injured@unarmed@critical_stomach
++@mech_loco_m@generic@injured@unarmed@general
++@mech_loco_m@generic@injured@unarmed@head
++@mech_loco_m@generic@injured@unarmed@left_arm
++@mech_loco_m@generic@injured@unarmed@left_leg
++@mech_loco_m@generic@injured@unarmed@right_arm
++@mech_loco_m@generic@injured@unarmed@right_leg
++@mech_loco_m@generic@intimidate@unarmed
++@mech_loco_m@generic@landing@0cm
++@mech_loco_m@generic@landing@100cm
++@mech_loco_m@generic@landing@200cm
++@mech_loco_m@generic@landing@300cm
++@mech_loco_m@generic@landing@50cm
++@mech_loco_m@generic@landing@crouch@heavy
++@mech_loco_m@generic@landing@crouch@light
++@mech_loco_m@generic@landing@crouch@medium
++@mech_loco_m@generic@landing@injured@200cm
++@mech_loco_m@generic@landing@slope_heavy
++@mech_loco_m@generic@landing@slope_light
++@mech_loco_m@generic@landing@slope_medium
++@mech_loco_m@generic@landing@vault
++@mech_loco_m@generic@normal@unarmed
++@mech_loco_m@generic@normal@unarmed@low_lod
++@mech_loco_m@generic@normal@unarmed@stairs
+ @mech_loco_m@generic@normal@unarmed@stairs_simple
++@mech_loco_m@generic@reaction@avoid@unarmed
++@mech_loco_m@generic@reaction@avoid@unarmed@dash
++@mech_loco_m@generic@reaction@avoid@unarmed@sharp
++@mech_loco_m@generic@reaction@avoid@unarmed@soft
++@mech_loco_m@generic@reaction@pointing@longarm
++@mech_loco_m@generic@reaction@pointing@unarmed
++@mech_loco_m@generic@searching@high_energy@direct@unarmed
++@mech_loco_m@generic@searching@high_energy@direct@unarmed@low_lod
++@mech_loco_m@generic@searching@high_energy@indirect@unarmed
++@mech_loco_m@generic@searching@high_energy@indirect@unarmed@low_lod
++@mech_loco_m@generic@searching@low_energy@direct@unarmed
++@mech_loco_m@generic@searching@low_energy@direct@unarmed@low_lod
++@mech_loco_m@generic@searching@low_energy@indirect@unarmed
++@mech_loco_m@generic@searching@low_energy@indirect@unarmed@low_lod
++@mech_loco_m@generic@special@piss_pot@ped_a
++@mech_loco_m@generic@special@piss_pot@ped_b
++@mech_loco_m@generic@special@unarmed@chain_gang@hands
++@mech_loco_m@generic@special@unarmed@chain_gang@legs
++@mech_loco_m@generic@special@unarmed@chain_gang@normal
++@mech_loco_m@generic@special@unarmed@guard_lantern
++@mech_loco_m@generic@special@unarmed@itchy
++@mech_loco_m@generic@special@unarmed@piss_pot@ped_a
++@mech_loco_m@generic@special@unarmed@piss_pot@ped_b
++@mech_loco_m@generic@special@unarmed@spool
++@mech_loco_m@generic@stealth@unarmed
++@mech_loco_m@generic@strafe@base
++@mech_loco_m@generic@strafe@crouch@base
++@mech_loco_m@generic@terrain@unarmed@foliage@medium
++@mech_loco_m@generic@terrain@unarmed@ice
++@mech_loco_m@generic@terrain@unarmed@mud
++@mech_loco_m@generic@terrain@unarmed@sliding
++@mech_loco_m@generic@terrain@unarmed@sliding@intro
++@mech_loco_m@generic@terrain@unarmed@sliding@outro
++@mech_loco_m@generic@terrain@unarmed@sliding@variations
++@mech_loco_m@generic@terrain@unarmed@slipping
++@mech_loco_m@generic@terrain@unarmed@snow
++@mech_loco_m@generic@terrain@unarmed@snow@var
++@mech_loco_m@generic@terrain@unarmed@swamp
++@mech_loco_m@generic@terrain@unarmed@tar
++@mech_loco_m@generic@terrain@unarmed@water
++@mech_loco_m@generic@walk_and_talk
++@mech_loco_m@generic@walk_and_talk@backward
++@mech_loco_m@generic@walk_and_talk@forward
++@mech_loco_m@type@casual
++@mech_loco_m@type@cowboy
++@mech_loco_m@type@rally@sad
++@mech_loco_m@type@streetkid
++@mech_loco_m@type@tribe@murfree
++@mech_loco_m@type@waiter
++@mech_loco_m@type@waiter@low_lod
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_pickup.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_pickup.txt
+index cf40cc0f7..8ffaed193 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_pickup.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_pickup.txt
+@@ -1 +1,5 @@
++@mech_pickup@weapons@exits@action
++@mech_pickup@weapons@exits@action@idle
++@mech_pickup@weapons@exits@normal
++@mech_pickup@weapons@exits@normal@idle
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_strafe.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_strafe.txt
+index 5b75a5e7f..2a0890218 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_strafe.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_strafe.txt
+@@ -1,2 +1,12 @@
++@mech_strafe@character@arthur@crouch@unarmed@moving
++@mech_strafe@character@arthur@crouch@unarmed@start
+ @mech_strafe@character@arthur@crouch@unarmed@stop
++@mech_strafe@character@arthur@crouch@unarmed@transitions
++@mech_strafe@character@arthur@unarmed@moving
++@mech_strafe@character@arthur@unarmed@start
++@mech_strafe@character@arthur@unarmed@stop
++@mech_strafe@character@arthur@unarmed@transitions
++@mech_strafe@generic@first_person@crouch@unarmed@moving
++@mech_strafe@generic@first_person@unarmed@moving
++@mech_strafe@generic@melee@unarmed@base
+ _manifest
+diff --git a/RDR2/ArchiveItems/anim_0/anim/motions/mech_weapons.txt b/RDR2/ArchiveItems/anim_0/anim/motions/mech_weapons.txt
+index cf40cc0f7..db0a71ed5 100644
+--- a/RDR2/ArchiveItems/anim_0/anim/motions/mech_weapons.txt
++++ b/RDR2/ArchiveItems/anim_0/anim/motions/mech_weapons.txt
+@@ -1 +1,5 @@
++@mech_weapons@dual@base
++@mech_weapons@longarms@base
++@mech_weapons@shortarms@base
++@mech_weapons@special@loco@lantern
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_f.txt
+index cf40cc0f7..6fed0a235 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_f.txt
+@@ -1 +1,3 @@
++@mech_loco_f@generic@normal@unarmed
++@mech_loco_f@type@mp@normal@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_m.txt
+index cf40cc0f7..8f17db408 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp004/dlc/x64/anim/motions/mech_loco_m.txt
+@@ -1 +1,18 @@
++@mech_loco_m@character@arthur@action@unarmed
++@mech_loco_m@character@arthur@core@stamina
++@mech_loco_m@character@arthur@crouch@normal
++@mech_loco_m@character@arthur@dehydrated@unarmed
++@mech_loco_m@character@arthur@normal@unarmed
++@mech_loco_m@character@arthur@normal@unarmed@firstperson
++@mech_loco_m@character@arthur@normal@unarmed@leadin
++@mech_loco_m@character@arthur@normal@very_drunk
++@mech_loco_m@character@arthur@reaction@avoid@unarmed
++@mech_loco_m@character@arthur@terrain@unarmed@ice
++@mech_loco_m@generic@action@unarmed
++@mech_loco_m@generic@carry@animals@large
++@mech_loco_m@generic@combat@low_intensity@pistol
++@mech_loco_m@generic@normal@unarmed
++@mech_loco_m@generic@stealth@unarmed
++@mech_loco_m@generic@terrain@unarmed@mud
++@mech_loco_m@generic@terrain@unarmed@swamp
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..ff0bd9f94 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,5 @@
++@creatures_mammal@bighornram@normal
++@creatures_mammal@bull@normal
++@creatures_mammal@cougar@normal
++@creatures_mammal@cougar@stealth
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..5ed6be8bf 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,3 @@
++@creatures_mammal_low_lod@bighornram@normal
++@creatures_mammal_low_lod@cougar@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile.txt
+index cf40cc0f7..fbd932cea 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile.txt
+@@ -1 +1,2 @@
++@creatures_reptile@alligator@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+index cf40cc0f7..c6ebec149 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+@@ -1 +1,2 @@
++@creatures_reptile_low_lod@alligator@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horse.txt
+index cf40cc0f7..e9967697a 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horse.txt
+@@ -1 +1,4 @@
++@horse@agitated_snow
++@horse@snow
++@horse@wading
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horseback.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horseback.txt
+index cf40cc0f7..56f29f24b 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/horseback.txt
+@@ -1 +1,2 @@
++@horseback@seat_rear@types@female@right@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_f.txt
+index 3349277ca..d2d249b43 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_f.txt
+@@ -1,2 +1,23 @@
++@mech_loco_f@character@lilly_millet@sad
++@mech_loco_f@character@sadie@normal@unarmed
++@mech_loco_f@character@susan@seductive@unarmed
++@mech_loco_f@character@tilly@normal@unarmed
++@mech_loco_f@character@widow@unarmed@dead_rabbit
++@mech_loco_f@generic@normal@unarmed
++@mech_loco_f@generic@normal@unarmed@low_lod
+ @mech_loco_f@generic@normal@unarmed@stairs_simple
++@mech_loco_f@type@angry_female@unarmed
++@mech_loco_f@type@cowgirl@unarmed
++@mech_loco_f@type@cowgirl_a@unarmed
++@mech_loco_f@type@flat_female@normal
++@mech_loco_f@type@high_class@normal@unarmed
++@mech_loco_f@type@mp@casual@unarmed
++@mech_loco_f@type@mp@crazy@unarmed
++@mech_loco_f@type@mp@flamboyant@unarmed
++@mech_loco_f@type@mp@gunslinger@unarmed
++@mech_loco_f@type@mp@lady@unarmed
++@mech_loco_f@type@mp@normal@unarmed
++@mech_loco_f@type@mp@silent_type@unarmed
++@mech_loco_f@type@practical@normal@unarmed
++@mech_loco_f@type@whore@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_m.txt
+index 69c2dfd35..8454fd302 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_loco_m.txt
+@@ -1,5 +1,148 @@
++@mech_loco_m@character@algie@drunk@unarmed
++@mech_loco_m@character@arthur@action@unarmed
++@mech_loco_m@character@arthur@core@stamina
++@mech_loco_m@character@arthur@crouch@normal
++@mech_loco_m@character@arthur@crouch@normal@low_lod
++@mech_loco_m@character@arthur@dehydrated@unarmed
++@mech_loco_m@character@arthur@injured@left_shoulder
++@mech_loco_m@character@arthur@normal@drunk
++@mech_loco_m@character@arthur@normal@unarmed
++@mech_loco_m@character@arthur@normal@unarmed@firstperson
++@mech_loco_m@character@arthur@normal@unarmed@leadin
++@mech_loco_m@character@arthur@normal@very_drunk
++@mech_loco_m@character@arthur@reaction@avoid@unarmed
++@mech_loco_m@character@arthur@special@chain_gang@catchup
++@mech_loco_m@character@arthur@special@chain_gang@normal
++@mech_loco_m@character@arthur@terrain@unarmed@ice
++@mech_loco_m@character@arthur@terrain@unarmed@snow
++@mech_loco_m@character@arthur@terrain@unarmed@snow@action
++@mech_loco_m@character@arthur@terrain@unarmed@swamp
++@mech_loco_m@character@arthur@terrain@unarmed@tar
++@mech_loco_m@character@arthur@terrain@unarmed@uneven
++@mech_loco_m@character@arthur@terrain@unarmed@water
++@mech_loco_m@character@arthur@terrain@unarmed@water@rapids
++@mech_loco_m@character@bill@action@boltaction
++@mech_loco_m@character@bill@normal@armed@boltaction
++@mech_loco_m@character@bill@normal@unarmed
++@mech_loco_m@character@bill@special@chain_gang
++@mech_loco_m@character@charles@normal@unarmed
++@mech_loco_m@character@dale_maroney@drunk@unarmed
++@mech_loco_m@character@dutch@normal@unarmed
++@mech_loco_m@character@dutch@special@chain_gang
++@mech_loco_m@character@evelyn_miller@normal@unarmed
++@mech_loco_m@character@hosea@action@armed
++@mech_loco_m@character@hosea@normal@unarmed
++@mech_loco_m@character@hosea@sick@armed
++@mech_loco_m@character@hosea@sick@unarmed
++@mech_loco_m@character@jack@normal@unarmed
++@mech_loco_m@character@jack_teen@normal@unarmed
++@mech_loco_m@character@javier@special@chain_gang
++@mech_loco_m@character@john_marston@cautious@unarmed
++@mech_loco_m@character@john_marston@normal@unarmed
++@mech_loco_m@character@josiah_trelawny@normal
++@mech_loco_m@character@kid_lostdog
++@mech_loco_m@character@kieran@normal@unarmed
++@mech_loco_m@character@micah@normal@unarmed
++@mech_loco_m@character@micah@normal@unarmed@holstered
++@mech_loco_m@character@micah@special@chain_gang
++@mech_loco_m@character@pearson@normal
++@mech_loco_m@character@primate@normal
++@mech_loco_m@character@rainsfall@normal@unarmed
++@mech_loco_m@character@rc@gold_panner
++@mech_loco_m@character@rc@undertaker
++@mech_loco_m@character@rc@war_veteran
++@mech_loco_m@character@sean@normal@unarmed
++@mech_loco_m@character@uncle@normal@unarmed
++@mech_loco_m@character@winston@normal@armed
++@mech_loco_m@generic@action@unarmed
++@mech_loco_m@generic@carry@animals@large
++@mech_loco_m@generic@carry@bag@left_shoulder
++@mech_loco_m@generic@carry@bag@right_shoulder
++@mech_loco_m@generic@carry@box
++@mech_loco_m@generic@carry@moonshine@action
++@mech_loco_m@generic@carry@moonshine@crouch
++@mech_loco_m@generic@carry@saddle
+ @mech_loco_m@generic@climb_exit@concave
+ @mech_loco_m@generic@climb_exit@stepup
+ @mech_loco_m@generic@climb_exit@vertical@high
++@mech_loco_m@generic@critical_injured@unarmed@general
++@mech_loco_m@generic@crouch@unarmed@stairs_simple
++@mech_loco_m@generic@drunk@unarmed@moderate_drunk
++@mech_loco_m@generic@drunk@unarmed@slightly_drunk
++@mech_loco_m@generic@drunk@unarmed@very_drunk
++@mech_loco_m@generic@emotion@unarmed@angry
++@mech_loco_m@generic@injured@pistol@aiming
++@mech_loco_m@generic@injured@pistol@chest
++@mech_loco_m@generic@injured@pistol@general
++@mech_loco_m@generic@injured@pistol@head
++@mech_loco_m@generic@injured@pistol@left_arm
++@mech_loco_m@generic@injured@pistol@left_leg
++@mech_loco_m@generic@injured@pistol@right_arm
++@mech_loco_m@generic@injured@pistol@right_leg
++@mech_loco_m@generic@injured@rifle@aiming
++@mech_loco_m@generic@injured@rifle@chest
++@mech_loco_m@generic@injured@rifle@general
++@mech_loco_m@generic@injured@rifle@head
++@mech_loco_m@generic@injured@rifle@left_arm
++@mech_loco_m@generic@injured@rifle@right_arm
++@mech_loco_m@generic@injured@rifle@right_leg
++@mech_loco_m@generic@injured@unarmed@chest
++@mech_loco_m@generic@injured@unarmed@critical_back
++@mech_loco_m@generic@injured@unarmed@critical_chest
++@mech_loco_m@generic@injured@unarmed@critical_neck
++@mech_loco_m@generic@injured@unarmed@critical_neck_right
++@mech_loco_m@generic@injured@unarmed@critical_stomach
++@mech_loco_m@generic@injured@unarmed@head
++@mech_loco_m@generic@injured@unarmed@left_arm
++@mech_loco_m@generic@injured@unarmed@left_leg
++@mech_loco_m@generic@injured@unarmed@right_arm
++@mech_loco_m@generic@injured@unarmed@right_leg
++@mech_loco_m@generic@intimidate@unarmed
++@mech_loco_m@generic@landing@0cm
++@mech_loco_m@generic@landing@100cm
++@mech_loco_m@generic@landing@200cm
++@mech_loco_m@generic@landing@300cm
++@mech_loco_m@generic@landing@50cm
++@mech_loco_m@generic@landing@vault
++@mech_loco_m@generic@normal@unarmed
++@mech_loco_m@generic@normal@unarmed@low_lod
+ @mech_loco_m@generic@normal@unarmed@stairs_simple
++@mech_loco_m@generic@reaction@avoid@unarmed
++@mech_loco_m@generic@searching@high_energy@direct@unarmed
++@mech_loco_m@generic@searching@high_energy@indirect@unarmed
++@mech_loco_m@generic@searching@low_energy@direct@unarmed
++@mech_loco_m@generic@searching@low_energy@indirect@unarmed
++@mech_loco_m@generic@special@piss_pot@ped_a
++@mech_loco_m@generic@special@piss_pot@ped_b
++@mech_loco_m@generic@special@unarmed@chain_gang@hands
++@mech_loco_m@generic@special@unarmed@chain_gang@legs
++@mech_loco_m@generic@special@unarmed@guard_lantern
++@mech_loco_m@generic@special@unarmed@itchy
++@mech_loco_m@generic@stealth@unarmed
++@mech_loco_m@generic@strafe@base
++@mech_loco_m@generic@terrain@unarmed@foliage@medium
++@mech_loco_m@generic@terrain@unarmed@ice
++@mech_loco_m@generic@terrain@unarmed@mud
++@mech_loco_m@generic@terrain@unarmed@sliding@intro
++@mech_loco_m@generic@terrain@unarmed@sliding@outro
++@mech_loco_m@generic@terrain@unarmed@snow
++@mech_loco_m@generic@terrain@unarmed@swamp
++@mech_loco_m@generic@walk_and_talk@backward
++@mech_loco_m@generic@walk_and_talk@forward
++@mech_loco_m@type@casual
++@mech_loco_m@type@cowboy
++@mech_loco_m@type@mp@casual@unarmed
++@mech_loco_m@type@mp@crazy@unarmed
++@mech_loco_m@type@mp@easy_rider@unarmed
++@mech_loco_m@type@mp@flamboyant@unarmed
++@mech_loco_m@type@mp@gentleman@unarmed
++@mech_loco_m@type@mp@greenhorn@unarmed
++@mech_loco_m@type@mp@gunslinger@unarmed
++@mech_loco_m@type@mp@silent_type@unarmed
++@mech_loco_m@type@mp@strafe@base
++@mech_loco_m@type@mp@strafe@crouch@base
++@mech_loco_m@type@mp@veteran@unarmed
++@mech_loco_m@type@rally@sad
++@mech_loco_m@type@streetkid
++@mech_loco_m@type@tribe@murfree
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_strafe.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_strafe.txt
+index 5b75a5e7f..e1f552c0d 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_strafe.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_strafe.txt
+@@ -1,2 +1,9 @@
++@mech_strafe@character@arthur@crouch@unarmed@moving
++@mech_strafe@character@arthur@crouch@unarmed@start
+ @mech_strafe@character@arthur@crouch@unarmed@stop
++@mech_strafe@character@arthur@crouch@unarmed@transitions
++@mech_strafe@character@arthur@unarmed@moving
++@mech_strafe@character@arthur@unarmed@start
++@mech_strafe@character@arthur@unarmed@stop
++@mech_strafe@character@arthur@unarmed@transitions
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_weapons.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_weapons.txt
+index 9759c7493..cb5d4147f 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_weapons.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp005/dlc/x64/anim/motions/mech_weapons.txt
+@@ -1,2 +1,3 @@
++@mech_weapons@special@loco@lantern
+ @mech_weapons@special@loco@metal_detector
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..8beac1abe 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,5 @@
++@creatures_mammal@boar@normal
++@creatures_mammal@deer@normal
++@creatures_mammal@possum@normal
++@creatures_mammal@rabbit@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..1f228913a 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,5 @@
++@creatures_mammal_low_lod@boar@normal
++@creatures_mammal_low_lod@deer@normal
++@creatures_mammal_low_lod@possum@normal
++@creatures_mammal_low_lod@rabbit@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/mech_loco_m.txt
+index cf40cc0f7..74402eb86 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp007/dlc/x64/anim/motions/mech_loco_m.txt
+@@ -1 +1,6 @@
++@mech_loco_m@character@arthur@normal@interior
++@mech_loco_m@character@arthur@normal@unarmed
++@mech_loco_m@generic@normal@unarmed
++@mech_loco_m@type@mp@drunk@unarmed
++@mech_loco_m@type@mp@inquisitive@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/draft_horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/draft_horse.txt
+index cf40cc0f7..9db8e533c 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/draft_horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/draft_horse.txt
+@@ -1 +1,2 @@
++@draft_horse@agitated
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/horse.txt
+index cf40cc0f7..4f223ddb9 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/mp009/dlc/x64/anim/motions/horse.txt
+@@ -1 +1,2 @@
++@horse@agitated
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..0be846627 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,117 @@
++@creatures_mammal@armadillo@normal
++@creatures_mammal@badger@normal
++@creatures_mammal@bear@action
++@creatures_mammal@bear@alerted
++@creatures_mammal@bear@injured_critical
++@creatures_mammal@bear@normal
++@creatures_mammal@bear@reaction
++@creatures_mammal@bearblack@action
++@creatures_mammal@bearblack@injured_critical
++@creatures_mammal@bearblack@normal
++@creatures_mammal@bearblack@reaction
++@creatures_mammal@beaver@normal
++@creatures_mammal@bighornram@charging
++@creatures_mammal@bighornram@injured
++@creatures_mammal@bighornram@normal
++@creatures_mammal@bighornram@reaction
++@creatures_mammal@boar@agitated
++@creatures_mammal@boar@charging
++@creatures_mammal@boar@injured
++@creatures_mammal@boar@injured_critical
++@creatures_mammal@boar@normal
++@creatures_mammal@boar@reaction
++@creatures_mammal@buffalo@agitated
++@creatures_mammal@buffalo@charging
++@creatures_mammal@buffalo@injured
++@creatures_mammal@buffalo@injured_critical
++@creatures_mammal@buffalo@normal
++@creatures_mammal@buffalo@reaction
++@creatures_mammal@bull@agitated
++@creatures_mammal@bull@charging
++@creatures_mammal@bull@injured
++@creatures_mammal@bull@injured_critical
++@creatures_mammal@bull@normal
++@creatures_mammal@bull@reaction
++@creatures_mammal@cat@normal
++@creatures_mammal@cat@reaction
++@creatures_mammal@cougar@injured
++@creatures_mammal@cougar@injured_critical
++@creatures_mammal@cougar@normal
++@creatures_mammal@cougar@reaction
++@creatures_mammal@cougar@stealth
++@creatures_mammal@cow@agitated
++@creatures_mammal@cow@injured
++@creatures_mammal@cow@injured_critical
++@creatures_mammal@cow@normal
++@creatures_mammal@cow@reaction
++@creatures_mammal@deer@agitated
++@creatures_mammal@deer@injured
++@creatures_mammal@deer@injured_critical
++@creatures_mammal@deer@normal
++@creatures_mammal@deer@reaction
++@creatures_mammal@dog@action
++@creatures_mammal@dog@happy
++@creatures_mammal@dog@injured
++@creatures_mammal@dog@injured_critical
++@creatures_mammal@dog@normal
++@creatures_mammal@dog@reaction
++@creatures_mammal@dog@sad
++@creatures_mammal@dog@searching
++@creatures_mammal@elk@agitated
++@creatures_mammal@elk@charging
++@creatures_mammal@elk@injured
++@creatures_mammal@elk@injured_critical
++@creatures_mammal@elk@normal
++@creatures_mammal@elk@reaction
++@creatures_mammal@fox@injured
++@creatures_mammal@fox@injured_critical
++@creatures_mammal@fox@normal
++@creatures_mammal@fox@reaction
++@creatures_mammal@goat@agitated
++@creatures_mammal@goat@charging
++@creatures_mammal@goat@injured
++@creatures_mammal@goat@injured_critical
++@creatures_mammal@goat@normal
++@creatures_mammal@goat@reaction
++@creatures_mammal@lionmangy@injured
++@creatures_mammal@lionmangy@normal
++@creatures_mammal@lionmangy@reaction
++@creatures_mammal@moose@agitated
++@creatures_mammal@moose@charging
++@creatures_mammal@moose@injured
++@creatures_mammal@moose@injured_critical
++@creatures_mammal@moose@normal
++@creatures_mammal@moose@reaction
++@creatures_mammal@muskrat@normal
++@creatures_mammal@pig@agitated
++@creatures_mammal@pig@injured
++@creatures_mammal@pig@injured_critical
++@creatures_mammal@pig@normal
++@creatures_mammal@pig@reaction
++@creatures_mammal@possum@normal
++@creatures_mammal@rabbit@normal
++@creatures_mammal@raccoon@normal
++@creatures_mammal@rat@normal
++@creatures_mammal@sheep@agitated
++@creatures_mammal@sheep@injured
++@creatures_mammal@sheep@injured_critical
++@creatures_mammal@sheep@normal
++@creatures_mammal@sheep@reaction
++@creatures_mammal@skunk@normal
++@creatures_mammal@squirrel@normal
++@creatures_mammal@wolf@action
++@creatures_mammal@wolf@injured
++@creatures_mammal@wolf@injuredcritical
++@creatures_mammal@wolf@normal
++@creatures_mammal@wolf@reaction
++@creatures_mammal@wolf_medium@action
++@creatures_mammal@wolf_medium@injured
++@creatures_mammal@wolf_medium@injuredcritical
++@creatures_mammal@wolf_medium@normal
++@creatures_mammal@wolf_medium@reaction
++@creatures_mammal@wolf_small@action
++@creatures_mammal@wolf_small@injured
++@creatures_mammal@wolf_small@injuredcritical
++@creatures_mammal@wolf_small@normal
++@creatures_mammal@wolf_small@reaction
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..1bf61f8f4 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,79 @@
++@creatures_mammal_low_lod@badger@normal
++@creatures_mammal_low_lod@bear@action
++@creatures_mammal_low_lod@bear@alerted
++@creatures_mammal_low_lod@bear@normal
++@creatures_mammal_low_lod@bear@reaction
++@creatures_mammal_low_lod@bearblack@action
++@creatures_mammal_low_lod@bearblack@normal
++@creatures_mammal_low_lod@bearblack@reaction
++@creatures_mammal_low_lod@beaver@normal
++@creatures_mammal_low_lod@bighornram@injured
++@creatures_mammal_low_lod@bighornram@normal
++@creatures_mammal_low_lod@bighornram@reaction
++@creatures_mammal_low_lod@boar@injured
++@creatures_mammal_low_lod@boar@injured_critical
++@creatures_mammal_low_lod@boar@normal
++@creatures_mammal_low_lod@boar@reaction
++@creatures_mammal_low_lod@buffalo@normal
++@creatures_mammal_low_lod@buffalo@reaction
++@creatures_mammal_low_lod@bull@normal
++@creatures_mammal_low_lod@bull@reaction
++@creatures_mammal_low_lod@cat@normal
++@creatures_mammal_low_lod@cougar@normal
++@creatures_mammal_low_lod@cougar@reaction
++@creatures_mammal_low_lod@cow@injured
++@creatures_mammal_low_lod@cow@injured_critical
++@creatures_mammal_low_lod@cow@normal
++@creatures_mammal_low_lod@cow@reaction
++@creatures_mammal_low_lod@deer@injured_critical
++@creatures_mammal_low_lod@deer@normal
++@creatures_mammal_low_lod@deer@reaction
++@creatures_mammal_low_lod@dog@normal
++@creatures_mammal_low_lod@dog@reaction
++@creatures_mammal_low_lod@elk@injured
++@creatures_mammal_low_lod@elk@injured_critical
++@creatures_mammal_low_lod@elk@normal
++@creatures_mammal_low_lod@elk@reaction
++@creatures_mammal_low_lod@fox@injured
++@creatures_mammal_low_lod@fox@injured_critical
++@creatures_mammal_low_lod@fox@normal
++@creatures_mammal_low_lod@fox@reaction
++@creatures_mammal_low_lod@goat@injured
++@creatures_mammal_low_lod@goat@injured_critical
++@creatures_mammal_low_lod@goat@normal
++@creatures_mammal_low_lod@goat@reaction
++@creatures_mammal_low_lod@lionmangy@injured
++@creatures_mammal_low_lod@lionmangy@normal
++@creatures_mammal_low_lod@lionmangy@reaction
++@creatures_mammal_low_lod@moose@injured
++@creatures_mammal_low_lod@moose@injured_critical
++@creatures_mammal_low_lod@moose@normal
++@creatures_mammal_low_lod@moose@reaction
++@creatures_mammal_low_lod@muskrat@normal
++@creatures_mammal_low_lod@pig@injured
++@creatures_mammal_low_lod@pig@injured_critical
++@creatures_mammal_low_lod@pig@normal
++@creatures_mammal_low_lod@pig@reaction
++@creatures_mammal_low_lod@possum@normal
++@creatures_mammal_low_lod@rabbit@normal
++@creatures_mammal_low_lod@raccoon@normal
++@creatures_mammal_low_lod@rat@normal
++@creatures_mammal_low_lod@sheep@injured
++@creatures_mammal_low_lod@sheep@injured_critical
++@creatures_mammal_low_lod@sheep@normal
++@creatures_mammal_low_lod@sheep@reaction
++@creatures_mammal_low_lod@skunk@normal
++@creatures_mammal_low_lod@squirrel@normal
++@creatures_mammal_low_lod@wolf@injured
++@creatures_mammal_low_lod@wolf@injuredcritical
++@creatures_mammal_low_lod@wolf@normal
++@creatures_mammal_low_lod@wolf@reaction
++@creatures_mammal_low_lod@wolf_medium@injured
++@creatures_mammal_low_lod@wolf_medium@injuredcritical
++@creatures_mammal_low_lod@wolf_medium@normal
++@creatures_mammal_low_lod@wolf_medium@reaction
++@creatures_mammal_low_lod@wolf_small@injured
++@creatures_mammal_low_lod@wolf_small@injuredcritical
++@creatures_mammal_low_lod@wolf_small@normal
++@creatures_mammal_low_lod@wolf_small@reaction
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/draft_horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/draft_horse.txt
+index cf40cc0f7..816266b05 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/draft_horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/draft_horse.txt
+@@ -1 +1,4 @@
++@draft_horse@agitated
++@draft_horse@normal
++@draft_horse@normal@strain
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horse.txt
+index f9825ae03..3c81610f8 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horse.txt
+@@ -1,3 +1,36 @@
++@horse@agitated
++@horse@agitated_injured
++@horse@agitated_normal
++@horse@agitated_snow
++@horse@bucking
++@horse@bucking@oneshot_a
++@horse@bucking@oneshot_c
++@horse@bucking@oneshot_e
++@horse@bucking@variation_a
++@horse@bucking@variation_b
++@horse@bucking@variation_c
++@horse@bucking@variation_e
++@horse@injured
++@horse@injured_critical
++@horse@low_core
+ @horse@normal
++@horse@normal@climb_exit
++@horse@normal@drop_land
++@horse@normal@emergency
++@horse@normal@jump_land
++@horse@normal@rearing
++@horse@normal@shunt
+ @horse@normal@skid
++@horse@normal@variation_a
++@horse@normal@variation_b
++@horse@normal@variation_c
++@horse@normal@variation_d
++@horse@reaction
++@horse@snow
++@horse@terrain@sliding@canter
++@horse@terrain@sliding@idle
++@horse@terrain@sliding@slide
++@horse@terrain@sliding@trot
++@horse@terrain@sliding@walk
++@horse@wading
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horseback.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horseback.txt
+index cf40cc0f7..a1ca4a09a 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/horseback.txt
+@@ -1 +1,44 @@
++@horseback@seat_rear@types@female@right@bucking
++@horseback@seat_rear@types@female@right@climb_exit
++@horseback@seat_rear@types@female@right@drop_land
++@horseback@seat_rear@types@female@right@jump_land
++@horseback@seat_rear@types@female@right@normal
++@horseback@seat_rear@types@female@right@normal@emergency
++@horseback@seat_rear@types@female@right@normal@rearing
++@horseback@seat_rear@types@male@bucking
++@horseback@seat_rear@types@male@climb_exit
++@horseback@seat_rear@types@male@drop_land
++@horseback@seat_rear@types@male@jump_land
++@horseback@seat_rear@types@male@normal
++@horseback@seat_rear@types@male@normal@emergency
++@horseback@seat_rear@types@male@normal@rearing
++@horseback@seat_saddle@character@arthur@normal@1h
++@horseback@seat_saddle@character@arthur@normal@2h
++@horseback@seat_saddle@character@bill@normal
++@horseback@seat_saddle@character@charles@normal
++@horseback@seat_saddle@character@dutch@normal
++@horseback@seat_saddle@character@jack@jump_land
++@horseback@seat_saddle@character@jack@normal
++@horseback@seat_saddle@character@jack@normal@bucking
++@horseback@seat_saddle@character@jack@normal@climb_exit
++@horseback@seat_saddle@character@jack@normal@drop_land
++@horseback@seat_saddle@character@javier@normal
++@horseback@seat_saddle@character@lenny@normal
++@horseback@seat_saddle@character@micah@normal
++@horseback@seat_saddle@emotion@panic
++@horseback@seat_saddle@emotion@scared
++@horseback@seat_saddle@types@female@normal@2h
++@horseback@seat_saddle@types@male@bucking@2h
++@horseback@seat_saddle@types@male@climb_exit
++@horseback@seat_saddle@types@male@drop_land
++@horseback@seat_saddle@types@male@jump_land
++@horseback@seat_saddle@types@male@normal@1h
++@horseback@seat_saddle@types@male@normal@2h
++@horseback@seat_saddle@types@male@normal@2h@emergency
++@horseback@seat_saddle@types@male@normal@2h@rearing
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_a
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_b
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_c
++@horseback@seat_saddle@types@male@normal@2h@slope_max@variation_d
++@horseback@seat_saddle@types@male@skid@accel
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_f.txt
+index 3349277ca..afca5bb61 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_f.txt
+@@ -1,2 +1,29 @@
++@mech_loco_f@character@abigail@normal@unarmed
++@mech_loco_f@character@karen@normal@unarmed
++@mech_loco_f@character@lilly_millet@sad
++@mech_loco_f@character@marybeth@normal@unarmed
++@mech_loco_f@character@sadie@menacing@longarm
++@mech_loco_f@character@sadie@normal@unarmed
++@mech_loco_f@character@susan@normal@unarmed
++@mech_loco_f@character@susan@seductive@unarmed
++@mech_loco_f@character@tilly@normal@unarmed
++@mech_loco_f@character@widow@unarmed@dead_rabbit
++@mech_loco_f@generic@combat@medium_intensity@pistol
++@mech_loco_f@generic@combat@skirt@medium_intensity@pistol
++@mech_loco_f@generic@emotion@unarmed@sad
++@mech_loco_f@generic@injured@unarmed@general
++@mech_loco_f@generic@injured@unarmed@left_leg
++@mech_loco_f@generic@injured@unarmed@right_leg
++@mech_loco_f@generic@normal@unarmed
++@mech_loco_f@generic@normal@unarmed@low_lod
++@mech_loco_f@generic@normal@unarmed@stairs
+ @mech_loco_f@generic@normal@unarmed@stairs_simple
++@mech_loco_f@type@angry_female@unarmed
++@mech_loco_f@type@cowgirl@unarmed
++@mech_loco_f@type@cowgirl_a@unarmed
++@mech_loco_f@type@flat_female@normal
++@mech_loco_f@type@high_class@normal@unarmed
++@mech_loco_f@type@old@normal@unarmed
++@mech_loco_f@type@practical@normal@unarmed
++@mech_loco_f@type@whore@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_m.txt
+index b80a5cfe6..94ae76320 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack001/dlc/x64/anim/motions/mech_loco_m.txt
+@@ -1,6 +1,266 @@
++@mech_loco_m@character@algie@drunk@unarmed
++@mech_loco_m@character@algie@normal@unarmed
++@mech_loco_m@character@arthur@action@unarmed
++@mech_loco_m@character@arthur@casual@unarmed
++@mech_loco_m@character@arthur@core@stamina
++@mech_loco_m@character@arthur@crouch@normal
++@mech_loco_m@character@arthur@crouch@normal@low_lod
++@mech_loco_m@character@arthur@crouch@unarmed
++@mech_loco_m@character@arthur@dehydrated@unarmed
++@mech_loco_m@character@arthur@horse_leading@unarmed
++@mech_loco_m@character@arthur@injured@left_shoulder
++@mech_loco_m@character@arthur@normal@drunk
++@mech_loco_m@character@arthur@normal@interior
++@mech_loco_m@character@arthur@normal@unarmed
++@mech_loco_m@character@arthur@normal@unarmed@firstperson
++@mech_loco_m@character@arthur@normal@unarmed@leadin
++@mech_loco_m@character@arthur@normal@unarmed@leadin@variants@1m
++@mech_loco_m@character@arthur@normal@unarmed@leadin@variants@3m
++@mech_loco_m@character@arthur@normal@unarmed@singlestep
++@mech_loco_m@character@arthur@normal@very_drunk
++@mech_loco_m@character@arthur@reaction@avoid@unarmed
++@mech_loco_m@character@arthur@reaction@avoid@unarmed@sharp
++@mech_loco_m@character@arthur@reaction@avoid@unarmed@soft
++@mech_loco_m@character@arthur@special@chain_gang@catchup
++@mech_loco_m@character@arthur@special@chain_gang@normal
++@mech_loco_m@character@arthur@terrain@unarmed@ice
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge_blizzard
++@mech_loco_m@character@arthur@terrain@unarmed@narrow_ledge_cliff
++@mech_loco_m@character@arthur@terrain@unarmed@snow
++@mech_loco_m@character@arthur@terrain@unarmed@snow@action
++@mech_loco_m@character@arthur@terrain@unarmed@swamp
++@mech_loco_m@character@arthur@terrain@unarmed@tar
++@mech_loco_m@character@arthur@terrain@unarmed@uneven
++@mech_loco_m@character@arthur@terrain@unarmed@water
++@mech_loco_m@character@arthur@terrain@unarmed@water@rapids
++@mech_loco_m@character@arthur@tired@unarmed
++@mech_loco_m@character@bill@action@boltaction
++@mech_loco_m@character@bill@normal@armed@boltaction
++@mech_loco_m@character@bill@normal@unarmed
++@mech_loco_m@character@bill@special@chain_gang
++@mech_loco_m@character@charles@normal@unarmed
++@mech_loco_m@character@dale_maroney@drunk@unarmed
++@mech_loco_m@character@dutch@combat@dual
++@mech_loco_m@character@dutch@normal@unarmed
++@mech_loco_m@character@dutch@special@chain_gang
++@mech_loco_m@character@evelyn_miller@normal@unarmed
++@mech_loco_m@character@free_slave@slave_01
++@mech_loco_m@character@free_slave@slave_02
++@mech_loco_m@character@fusar@var_01@action@armed
++@mech_loco_m@character@fusar@var_01@normal@armed
++@mech_loco_m@character@fusar@var_02@action@armed
++@mech_loco_m@character@fusar@var_02@normal@armed
++@mech_loco_m@character@hosea@action@armed
++@mech_loco_m@character@hosea@normal@unarmed
++@mech_loco_m@character@hosea@sick@armed
++@mech_loco_m@character@hosea@sick@unarmed
++@mech_loco_m@character@jack@normal@unarmed
++@mech_loco_m@character@jack_teen@normal@unarmed
++@mech_loco_m@character@javier@normal@unarmed
++@mech_loco_m@character@javier@special@chain_gang
++@mech_loco_m@character@john_marston@cautious@unarmed
++@mech_loco_m@character@john_marston@normal@unarmed
++@mech_loco_m@character@josiah_trelawny@normal
++@mech_loco_m@character@kid_lostdog
++@mech_loco_m@character@kieran@normal@unarmed
++@mech_loco_m@character@micah@combat@medium_intensity@dual
++@mech_loco_m@character@micah@normal@unarmed
++@mech_loco_m@character@micah@normal@unarmed@holstered
++@mech_loco_m@character@micah@special@chain_gang
++@mech_loco_m@character@pearson@normal
++@mech_loco_m@character@primate@normal
++@mech_loco_m@character@rainsfall@normal@unarmed
++@mech_loco_m@character@rc@charles_in_dress
++@mech_loco_m@character@rc@gold_panner
++@mech_loco_m@character@rc@undertaker
++@mech_loco_m@character@rc@war_veteran
++@mech_loco_m@character@sean@normal@unarmed
++@mech_loco_m@character@uncle@normal@unarmed
++@mech_loco_m@character@winston@normal@armed
++@mech_loco_m@generic@action@unarmed
++@mech_loco_m@generic@carry@animals@large
++@mech_loco_m@generic@carry@animals@large@low_lod
++@mech_loco_m@generic@carry@bag@left_shoulder
++@mech_loco_m@generic@carry@bag@right_shoulder
++@mech_loco_m@generic@carry@box
++@mech_loco_m@generic@carry@champagne
++@mech_loco_m@generic@carry@coffee
++@mech_loco_m@generic@carry@moonshine@action
++@mech_loco_m@generic@carry@moonshine@crouch
++@mech_loco_m@generic@carry@saddle
++@mech_loco_m@generic@casual@unarmed
+ @mech_loco_m@generic@climb_exit@concave
++@mech_loco_m@generic@climb_exit@crouch@concave
++@mech_loco_m@generic@climb_exit@crouch@stepup
++@mech_loco_m@generic@climb_exit@crouch@vertical@high
++@mech_loco_m@generic@climb_exit@injured@stepup
+ @mech_loco_m@generic@climb_exit@injured@vertical@high
++@mech_loco_m@generic@climb_exit@injured@vertical@low
+ @mech_loco_m@generic@climb_exit@stepup
+ @mech_loco_m@generic@climb_exit@vertical@high
++@mech_loco_m@generic@climb_exit@vertical@low
++@mech_loco_m@generic@climb_fails@long_run
++@mech_loco_m@generic@climb_fails@short_run
++@mech_loco_m@generic@climb_fails@stand
++@mech_loco_m@generic@combat@critical_injured@back@pistol
++@mech_loco_m@generic@combat@critical_injured@back@rifle
++@mech_loco_m@generic@combat@critical_injured@back@unarmed
++@mech_loco_m@generic@combat@critical_injured@front@pistol
++@mech_loco_m@generic@combat@critical_injured@front@rifle
++@mech_loco_m@generic@combat@critical_injured@front@unarmed
++@mech_loco_m@generic@combat@high_intensity@blade
++@mech_loco_m@generic@combat@high_intensity@pistol
++@mech_loco_m@generic@combat@high_intensity@rifle
++@mech_loco_m@generic@combat@high_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@injured@pistol
++@mech_loco_m@generic@combat@injured@torso@pistol
++@mech_loco_m@generic@combat@injured@torso@rifle
++@mech_loco_m@generic@combat@injured@unarmed@general
++@mech_loco_m@generic@combat@injured@unarmed@left_leg
++@mech_loco_m@generic@combat@injured@unarmed@right_leg
++@mech_loco_m@generic@combat@low_intensity@pistol
++@mech_loco_m@generic@combat@low_intensity@rifle
++@mech_loco_m@generic@combat@low_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@medium_intensity@pistol
++@mech_loco_m@generic@combat@medium_intensity@pistol@injured_on_ground
++@mech_loco_m@generic@combat@medium_intensity@pistol@low_lod
++@mech_loco_m@generic@combat@medium_intensity@pistol@reaction
++@mech_loco_m@generic@combat@medium_intensity@rifle
++@mech_loco_m@generic@combat@medium_intensity@rifle@low_lod
++@mech_loco_m@generic@combat@medium_intensity@rifle@reaction
++@mech_loco_m@generic@combat@medium_intensity@unarmed
++@mech_loco_m@generic@combat@zero_intensity@pistol
++@mech_loco_m@generic@combat@zero_intensity@unarmed
++@mech_loco_m@generic@critical_injured@unarmed@general
++@mech_loco_m@generic@crouch@unarmed
++@mech_loco_m@generic@crouch@unarmed@stairs_simple
++@mech_loco_m@generic@drunk@unarmed@low_lod
++@mech_loco_m@generic@drunk@unarmed@moderate_drunk
++@mech_loco_m@generic@drunk@unarmed@slightly_drunk
++@mech_loco_m@generic@drunk@unarmed@very_drunk
++@mech_loco_m@generic@emotion@unarmed@angry
++@mech_loco_m@generic@emotion@unarmed@angry@low_lod
++@mech_loco_m@generic@emotion@unarmed@angry@react
++@mech_loco_m@generic@emotion@unarmed@cower@known
++@mech_loco_m@generic@emotion@unarmed@cower@known@react
++@mech_loco_m@generic@emotion@unarmed@cower@unknown
++@mech_loco_m@generic@emotion@unarmed@cower@unknown@react
++@mech_loco_m@generic@emotion@unarmed@cower@unknown@transition
++@mech_loco_m@generic@emotion@unarmed@curious
++@mech_loco_m@generic@emotion@unarmed@curious@react
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@low_lod
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@reaction
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_ass@scared
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_feet@scared
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@low_lod
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@nervous
++@mech_loco_m@generic@emotion@unarmed@intimidated@on_knees@scared
++@mech_loco_m@generic@emotion@unarmed@nervous
++@mech_loco_m@generic@emotion@unarmed@panic@react@crouch
++@mech_loco_m@generic@emotion@unarmed@shocked
++@mech_loco_m@generic@emotion@unarmed@shocked@reaction
++@mech_loco_m@generic@injured@low_lod
++@mech_loco_m@generic@injured@pistol@aiming
++@mech_loco_m@generic@injured@pistol@aiming@low_lod
++@mech_loco_m@generic@injured@pistol@chest
++@mech_loco_m@generic@injured@pistol@general
++@mech_loco_m@generic@injured@pistol@head
++@mech_loco_m@generic@injured@pistol@left_arm
++@mech_loco_m@generic@injured@pistol@left_leg
++@mech_loco_m@generic@injured@pistol@right_arm
++@mech_loco_m@generic@injured@pistol@right_leg
++@mech_loco_m@generic@injured@rifle@aiming
++@mech_loco_m@generic@injured@rifle@aiming@low_lod
++@mech_loco_m@generic@injured@rifle@chest
++@mech_loco_m@generic@injured@rifle@general
++@mech_loco_m@generic@injured@rifle@head
++@mech_loco_m@generic@injured@rifle@left_arm
++@mech_loco_m@generic@injured@rifle@right_arm
++@mech_loco_m@generic@injured@rifle@right_leg
++@mech_loco_m@generic@injured@unarmed@chest
++@mech_loco_m@generic@injured@unarmed@critical_back
++@mech_loco_m@generic@injured@unarmed@critical_chest
++@mech_loco_m@generic@injured@unarmed@critical_neck
++@mech_loco_m@generic@injured@unarmed@critical_neck_right
++@mech_loco_m@generic@injured@unarmed@critical_stomach
++@mech_loco_m@generic@injured@unarmed@general
++@mech_loco_m@generic@injured@unarmed@head
++@mech_loco_m@generic@injured@unarmed@left_arm
++@mech_loco_m@generic@injured@unarmed@left_leg
++@mech_loco_m@generic@injured@unarmed@right_arm
++@mech_loco_m@generic@injured@unarmed@right_leg
++@mech_loco_m@generic@intimidate@unarmed
++@mech_loco_m@generic@landing@0cm
++@mech_loco_m@generic@landing@100cm
++@mech_loco_m@generic@landing@200cm
++@mech_loco_m@generic@landing@300cm
++@mech_loco_m@generic@landing@50cm
++@mech_loco_m@generic@landing@crouch@heavy
++@mech_loco_m@generic@landing@crouch@light
++@mech_loco_m@generic@landing@crouch@medium
++@mech_loco_m@generic@landing@injured@200cm
++@mech_loco_m@generic@landing@slope_heavy
++@mech_loco_m@generic@landing@slope_light
++@mech_loco_m@generic@landing@slope_medium
++@mech_loco_m@generic@landing@vault
++@mech_loco_m@generic@normal@unarmed
++@mech_loco_m@generic@normal@unarmed@low_lod
++@mech_loco_m@generic@normal@unarmed@stairs
+ @mech_loco_m@generic@normal@unarmed@stairs_simple
++@mech_loco_m@generic@reaction@avoid@unarmed
++@mech_loco_m@generic@reaction@avoid@unarmed@dash
++@mech_loco_m@generic@reaction@avoid@unarmed@sharp
++@mech_loco_m@generic@reaction@avoid@unarmed@soft
++@mech_loco_m@generic@reaction@pointing@longarm
++@mech_loco_m@generic@reaction@pointing@unarmed
++@mech_loco_m@generic@searching@high_energy@direct@unarmed
++@mech_loco_m@generic@searching@high_energy@direct@unarmed@low_lod
++@mech_loco_m@generic@searching@high_energy@indirect@unarmed
++@mech_loco_m@generic@searching@high_energy@indirect@unarmed@low_lod
++@mech_loco_m@generic@searching@low_energy@direct@unarmed
++@mech_loco_m@generic@searching@low_energy@direct@unarmed@low_lod
++@mech_loco_m@generic@searching@low_energy@indirect@unarmed
++@mech_loco_m@generic@searching@low_energy@indirect@unarmed@low_lod
++@mech_loco_m@generic@special@piss_pot@ped_a
++@mech_loco_m@generic@special@piss_pot@ped_b
++@mech_loco_m@generic@special@unarmed@chain_gang@hands
++@mech_loco_m@generic@special@unarmed@chain_gang@legs
++@mech_loco_m@generic@special@unarmed@chain_gang@normal
++@mech_loco_m@generic@special@unarmed@guard_lantern
++@mech_loco_m@generic@special@unarmed@itchy
++@mech_loco_m@generic@special@unarmed@piss_pot@ped_a
++@mech_loco_m@generic@special@unarmed@piss_pot@ped_b
++@mech_loco_m@generic@special@unarmed@spool
++@mech_loco_m@generic@stealth@unarmed
++@mech_loco_m@generic@strafe@base
++@mech_loco_m@generic@strafe@crouch@base
++@mech_loco_m@generic@terrain@unarmed@foliage@medium
++@mech_loco_m@generic@terrain@unarmed@ice
++@mech_loco_m@generic@terrain@unarmed@mud
++@mech_loco_m@generic@terrain@unarmed@sliding
++@mech_loco_m@generic@terrain@unarmed@sliding@intro
++@mech_loco_m@generic@terrain@unarmed@sliding@outro
++@mech_loco_m@generic@terrain@unarmed@sliding@variations
++@mech_loco_m@generic@terrain@unarmed@slipping
++@mech_loco_m@generic@terrain@unarmed@snow
++@mech_loco_m@generic@terrain@unarmed@snow@var
++@mech_loco_m@generic@terrain@unarmed@swamp
++@mech_loco_m@generic@terrain@unarmed@tar
++@mech_loco_m@generic@terrain@unarmed@water
++@mech_loco_m@generic@walk_and_talk
++@mech_loco_m@generic@walk_and_talk@backward
++@mech_loco_m@generic@walk_and_talk@forward
++@mech_loco_m@type@casual
++@mech_loco_m@type@cowboy
++@mech_loco_m@type@rally@sad
++@mech_loco_m@type@streetkid
++@mech_loco_m@type@tribe@murfree
++@mech_loco_m@type@waiter
++@mech_loco_m@type@waiter@low_lod
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/ai_getup.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/ai_getup.txt
+index 0f64284df..98413be29 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/ai_getup.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/ai_getup.txt
+@@ -1,5 +1,17 @@
+ @ai_getup@exit@from_knees@action
++@ai_getup@exit@from_knees@combat@injured_pistol_aim
++@ai_getup@exit@from_knees@combat@injured_rifle_aim
++@ai_getup@exit@from_knees@combat@pistol_aim@idle
++@ai_getup@exit@from_knees@combat@rifle_aim@idle
++@ai_getup@exit@from_knees@crouch
++@ai_getup@exit@from_knees@normal
+ @ai_getup@exit@from_knees@urgent
+ @ai_getup@exit@from_seated@action
++@ai_getup@exit@from_seated@combat@injured_pistol_aim
++@ai_getup@exit@from_seated@combat@injured_rifle_aim
++@ai_getup@exit@from_seated@combat@pistol_aim@idle
++@ai_getup@exit@from_seated@combat@rifle_aim@idle
++@ai_getup@exit@from_seated@crouch
++@ai_getup@exit@from_seated@normal
+ @ai_getup@exit@from_seated@urgent
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/draft_horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/draft_horse.txt
+index cf40cc0f7..816266b05 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/draft_horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/draft_horse.txt
+@@ -1 +1,4 @@
++@draft_horse@agitated
++@draft_horse@normal
++@draft_horse@normal@strain
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horse.txt
+index f9825ae03..43ca472e0 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horse.txt
+@@ -1,3 +1,9 @@
++@horse@agitated
+ @horse@normal
++@horse@normal@emergency
++@horse@normal@jump_land
++@horse@normal@shunt
+ @horse@normal@skid
++@horse@snow
++@horse@wading
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horseback.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horseback.txt
+index cf40cc0f7..cdaa8274f 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/horseback.txt
+@@ -1 +1,15 @@
++@horseback@seat_rear@types@female@right@bucking
++@horseback@seat_rear@types@female@right@climb_exit
++@horseback@seat_rear@types@female@right@normal@emergency
++@horseback@seat_rear@types@male@bucking
++@horseback@seat_rear@types@male@climb_exit
++@horseback@seat_rear@types@male@jump_land
++@horseback@seat_rear@types@male@normal
++@horseback@seat_rear@types@male@normal@emergency
++@horseback@seat_rear@types@male@normal@rearing
++@horseback@seat_saddle@types@female@normal@2h
++@horseback@seat_saddle@types@male@bucking@2h
++@horseback@seat_saddle@types@male@climb_exit
++@horseback@seat_saddle@types@male@normal@2h@emergency
++@horseback@seat_saddle@types@male@normal@2h@rearing
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_f.txt
+index cf40cc0f7..7863e7fa0 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_f.txt
+@@ -1 +1,8 @@
++@mech_loco_f@type@mp@casual@unarmed
++@mech_loco_f@type@mp@crazy@unarmed
++@mech_loco_f@type@mp@flamboyant@unarmed
++@mech_loco_f@type@mp@gunslinger@unarmed
++@mech_loco_f@type@mp@lady@unarmed
++@mech_loco_f@type@mp@normal@unarmed
++@mech_loco_f@type@mp@silent_type@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_m.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_m.txt
+index cf40cc0f7..488e649d7 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_m.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack002/dlc/x64/anim/motions/mech_loco_m.txt
+@@ -1 +1,10 @@
++@mech_loco_m@generic@intimidate@unarmed
++@mech_loco_m@generic@terrain@unarmed@mud
++@mech_loco_m@generic@terrain@unarmed@swamp
++@mech_loco_m@type@mp@casual@unarmed
++@mech_loco_m@type@mp@crazy@unarmed
++@mech_loco_m@type@mp@flamboyant@unarmed
++@mech_loco_m@type@mp@gentleman@unarmed
++@mech_loco_m@type@mp@gunslinger@unarmed
++@mech_loco_m@type@mp@silent_type@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/ai_getup.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/ai_getup.txt
+index b69cce620..6d96d5415 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/ai_getup.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/ai_getup.txt
+@@ -1,3 +1,18 @@
+ @ai_getup@exit@from_knees@action
++@ai_getup@exit@from_knees@chain_gang
++@ai_getup@exit@from_knees@combat@injured_pistol_aim
++@ai_getup@exit@from_knees@combat@injured_rifle_aim
++@ai_getup@exit@from_knees@combat@pistol_aim@idle
++@ai_getup@exit@from_knees@combat@rifle_aim@idle
++@ai_getup@exit@from_knees@critical_injured
++@ai_getup@exit@from_knees@crouch
++@ai_getup@exit@from_knees@drunk
++@ai_getup@exit@from_knees@injured
++@ai_getup@exit@from_knees@injured@low_lod
++@ai_getup@exit@from_knees@intimidated@standing
++@ai_getup@exit@from_knees@nervous
++@ai_getup@exit@from_knees@normal
++@ai_getup@exit@from_knees@panic
++@ai_getup@exit@from_knees@scared
+ @ai_getup@exit@from_knees@urgent
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_bird.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_bird.txt
+index cf40cc0f7..45a085f4c 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_bird.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_bird.txt
+@@ -1 +1,6 @@
++@creatures_bird@chicken@land
++@creatures_bird@pelican@land
++@creatures_bird@rooster@land
++@creatures_bird@turkey@land
++@creatures_bird@turkeywild@land
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..6a4fa6d91 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,8 @@
++@creatures_mammal@beaver@normal
++@creatures_mammal@bull@normal
++@creatures_mammal@lionmangy@normal
++@creatures_mammal@possum@normal
++@creatures_mammal@rabbit@normal
++@creatures_mammal@rat@normal
++@creatures_mammal@squirrel@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..206064d45 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,8 @@
++@creatures_mammal_low_lod@beaver@normal
++@creatures_mammal_low_lod@bull@normal
++@creatures_mammal_low_lod@lionmangy@normal
++@creatures_mammal_low_lod@possum@normal
++@creatures_mammal_low_lod@rabbit@normal
++@creatures_mammal_low_lod@rat@normal
++@creatures_mammal_low_lod@squirrel@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile.txt
+index cf40cc0f7..c0c785329 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile.txt
+@@ -1 +1,4 @@
++@creatures_reptile@alligator@normal
++@creatures_reptile@alligator@wading
++@creatures_reptile@turtlesnapping@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+index cf40cc0f7..fde6174d5 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+@@ -1 +1,4 @@
++@creatures_reptile_low_lod@alligator@normal
++@creatures_reptile_low_lod@alligator@wading
++@creatures_reptile_low_lod@turtlesnapping@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/mech_loco_f.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/mech_loco_f.txt
+index cf40cc0f7..2ffdd7e30 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/mech_loco_f.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack003/dlc/x64/anim/motions/mech_loco_f.txt
+@@ -1 +1,2 @@
++@mech_loco_f@type@mp@normal@unarmed
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_arthropod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_arthropod.txt
+index cf40cc0f7..6341bf66d 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_arthropod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_arthropod.txt
+@@ -1 +1,2 @@
++@creatures_arthropod@crab@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_bird.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_bird.txt
+index cf40cc0f7..d0ecd211f 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_bird.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_bird.txt
+@@ -1 +1,8 @@
++@creatures_bird@cranewhooping@air
++@creatures_bird@cranewhooping@land
++@creatures_bird@hawk@air
++@creatures_bird@hawk@land
++@creatures_bird@heron@air
++@creatures_bird@heron@land
++@creatures_bird@woodpecker@land
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..f4dcf8d3c 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,7 @@
++@creatures_mammal@beaver@normal
++@creatures_mammal@cat@normal
++@creatures_mammal@cow@normal
++@creatures_mammal@dog@sad
++@creatures_mammal@moose@normal
++@creatures_mammal@sheep@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..7b9eb6820 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,5 @@
++@creatures_mammal_low_lod@beaver@normal
++@creatures_mammal_low_lod@cat@normal
++@creatures_mammal_low_lod@cow@normal
++@creatures_mammal_low_lod@moose@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile.txt
+index cf40cc0f7..76233e701 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile.txt
+@@ -1 +1,3 @@
++@creatures_reptile@alligator@normal
++@creatures_reptile@iguana@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+index cf40cc0f7..c6ebec149 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/creatures_reptile_low_lod.txt
+@@ -1 +1,2 @@
++@creatures_reptile_low_lod@alligator@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horse.txt
+index cf40cc0f7..ab714ad0e 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horse.txt
+@@ -1 +1,2 @@
++@horse@normal@rearing
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horseback.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horseback.txt
+index cf40cc0f7..ca7bf8eae 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack004/dlc/x64/anim/motions/horseback.txt
+@@ -1 +1,6 @@
++@horseback@seat_rear@types@female@right@normal@rearing
++@horseback@seat_rear@types@male@normal@rearing
++@horseback@seat_saddle@character@jack@normal
++@horseback@seat_saddle@types@male@normal@2h
++@horseback@seat_saddle@types@male@normal@2h@rearing
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horse.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horse.txt
+index cf40cc0f7..3511fc2bf 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horse.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horse.txt
+@@ -1 +1,4 @@
++@horse@injured_critical
++@horse@normal@emergency
++@horse@normal@rearing
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horseback.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horseback.txt
+index cf40cc0f7..cea4414a8 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horseback.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack005/dlc/x64/anim/motions/horseback.txt
+@@ -1 +1,7 @@
++@horseback@seat_rear@types@female@right@normal@emergency
++@horseback@seat_rear@types@female@right@normal@rearing
++@horseback@seat_rear@types@male@normal@emergency
++@horseback@seat_rear@types@male@normal@rearing
++@horseback@seat_saddle@types@male@normal@2h@emergency
++@horseback@seat_saddle@types@male@normal@2h@rearing
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack006/dlc/x64/anim/motions/creatures_bird.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack006/dlc/x64/anim/motions/creatures_bird.txt
+index cf40cc0f7..476cbd5ea 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack006/dlc/x64/anim/motions/creatures_bird.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack006/dlc/x64/anim/motions/creatures_bird.txt
+@@ -1 +1,23 @@
++@creatures_bird@bat@land
++@creatures_bird@californiacondor@land
++@creatures_bird@carolinaparakeet@land
++@creatures_bird@cranewhooping@land
++@creatures_bird@crow@land
++@creatures_bird@duck@land
++@creatures_bird@eagle@land
++@creatures_bird@goosecanada@land
++@creatures_bird@hawk@land
++@creatures_bird@heron@land
++@creatures_bird@owl@land
++@creatures_bird@parrot@land
++@creatures_bird@pelican@land
++@creatures_bird@pheasant@land
++@creatures_bird@pigeon@land
++@creatures_bird@prairiechicken@land
++@creatures_bird@quail@land
++@creatures_bird@seagull@land
++@creatures_bird@sparrow@land
++@creatures_bird@turkeywild@land
++@creatures_bird@vulture@land
++@creatures_bird@woodpecker@land
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal.txt
+index cf40cc0f7..a3c6c9e78 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal.txt
+@@ -1 +1,3 @@
++@creatures_mammal@elk@injured_critical
++@creatures_mammal@rat@normal
+ _manifest
+diff --git a/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt b/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+index cf40cc0f7..e2969eec7 100644
+--- a/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
++++ b/RDR2/ArchiveItems/x64/dlcpacks/patchpack007/dlc/x64/anim/motions/creatures_mammal_low_lod.txt
+@@ -1 +1,3 @@
++@creatures_mammal_low_lod@elk@injured_critical
++@creatures_mammal_low_lod@rat@normal
+ _manifest
