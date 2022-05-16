@@ -34,3 +34,5 @@ script_mp@player@chest
 script_mp@player@healing
 script_mp@player@lightmatchtoss
 script_mp@player@unlockdoor
+script_mp@endflow@endcelebration@team_grouping@protect@mppro_ig1_endcelebration_v1
+script_mp@endflow@endcelebration@team_grouping@protect@mppro_ig2_endsadwalk_v2
